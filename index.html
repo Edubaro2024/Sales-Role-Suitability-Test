@@ -1,206 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sales Role Suitability Test</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2, h3 {
-            text-align: center;
-            color: #333;
-        }
-        p {
-            font-size: 16px;
-            color: #666;
-        }
-        .question {
-            margin-top: 20px;
-            font-size: 18px;
-        }
-        .answers {
-            display: flex;
-            flex-direction: column;
-            margin-top: 10px;
-        }
-        .answers label {
-            background-color: #f2f2f2;
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .answers label:hover {
-            background-color: #e0e0e0;
-        }
-        .btn, .next-btn {
-            margin-top: 30px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            width: 100%;
-        }
-        .btn:hover, .next-btn:hover {
-            background-color: #0056b3;
-        }
-        .btn[disabled] {
-            background-color: #cccccc;
-            cursor: not-allowed;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales Role Suitability Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    .question {
+      display: none;
+      margin-bottom: 20px;
+    }
+    .question.active {
+      display: block;
+    }
+    label {
+      font-weight: bold;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .answers {
+      margin-top: 10px;
+    }
+    .answers input {
+      margin-right: 10px;
+    }
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #2980b9;
+    }
+    #results {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #ecf0f1;
+      border: 1px solid #bdc3c7;
+      border-radius: 5px;
+      display: none;
+    }
+  </style>
 </head>
 <body>
+  <h1>Sales Role Suitability Test</h1>
+  <p>Answer each question to discover which sales role suits you best.</p>
 
-<!-- Introduction Section -->
-<div class="container" id="introSection">
-    <h1>Sales Role Suitability Test</h1>
-    <p>Welcome to the Sales Role Suitability Test! This quick test will help you determine which sales role best fits your skills and preferences. Answer the questions thoughtfully, and at the end, we’ll suggest a role that matches your profile.</p>
-    
-    <!-- Start Test Button -->
-    <button class="next-btn" onclick="startTest()">Start Test</button>
-</div>
+  <form id="salesTest">
+    <!-- Questions -->
+    <div class="question active" id="question1">
+      <label>1. How do you approach building relationships with clients or partners?</label>
+      <div class="answers">
+        <input type="radio" name="q1" value="A" onclick="nextQuestion(1)"> I focus on creating long-term, strategic partnerships that benefit both parties.<br>
+        <input type="radio" name="q1" value="B" onclick="nextQuestion(1)"> I enjoy building quick rapport to close deals and move on to the next opportunity.<br>
+        <input type="radio" name="q1" value="C" onclick="nextQuestion(1)"> I prioritize understanding client needs and helping them succeed over the long term.<br>
+      </div>
+    </div>
+    <div class="question" id="question2">
+      <label>2. A prospect says they’re happy with their current vendor. How do you respond?</label>
+      <div class="answers">
+        <input type="radio" name="q2" value="A" onclick="nextQuestion(2)"> Highlight the strategic advantages of partnering with our company.<br>
+        <input type="radio" name="q2" value="B" onclick="nextQuestion(2)"> Offer a demo showcasing how our solution can outperform their current one.<br>
+        <input type="radio" name="q2" value="C" onclick="nextQuestion(2)"> Ask questions to uncover unmet needs or potential gaps.<br>
+      </div>
+    </div>
+    <!-- Add remaining questions here in the same format -->
 
-<!-- Test Form Section - Hidden initially -->
-<div class="container" id="testForm" style="display:none;">
-    <h1>Sales Role Suitability Test</h1>
-    <form id="salesTestForm">
-        <div id="questionContainer">
-            <!-- Questions will be dynamically inserted here -->
-        </div>
-        <button class="btn" type="button" id="submitTestBtn" style="display: none;" onclick="submitTest()">Submit Test</button>
-    </form>
-</div>
+    <!-- Question 3 -->
+    <div class="question" id="question3">
+      <label>3. How do you manage competing priorities between multiple clients or tasks?</label>
+      <div class="answers">
+        <input type="radio" name="q3" value="A" onclick="nextQuestion(3)"> Prioritize based on revenue potential and business impact.<br>
+        <input type="radio" name="q3" value="B" onclick="nextQuestion(3)"> Balance time between new opportunities and renewals.<br>
+        <input type="radio" name="q3" value="C" onclick="nextQuestion(3)"> Ensure every client feels equally valued.<br>
+      </div>
+    </div>
 
-<script>
-    // List of questions and answer choices
-    const questions = [
-        "1. How do you approach building relationships with clients or partners?",
-        "2. A prospect says they’re happy with their current vendor. How do you respond?",
-        "3. How do you manage competing priorities between multiple clients or tasks?",
-        "4. How would you motivate a sales team that’s underperforming?",
-        "5. When preparing for a product demo with a prospect, what’s your main focus?",
-        "6. How do you approach retaining an unhappy customer?",
-        "7. A client you’ve worked with for years is considering switching to a competitor. How do you respond?",
-        "8. What’s your priority when managing a large, high-value account?",
-        "9. What do you enjoy most about working in sales?",
-        "10. How do you measure success in your role?"
-    ];
+    <!-- Add remaining questions similarly -->
 
+    <div id="results">
+      <h2>Test Results</h2>
+      <p id="scoreOutput"></p>
+    </div>
+  </form>
+
+  <script>
+    let currentQuestion = 1;
+    const totalQuestions = 10; // Adjust as needed
+    const answers = [];
     const rolesMapping = {
-        "Hybrid Account Manager (HAM)": [3, 6, 8, 10],
-        "Enterprise Account Manager (EAM)": [1, 2, 7, 8, 10],
-        "New Business Account Manager (NBAM)": [1, 2, 9, 10],
-        "Customer Success Manager (CSM)": [1, 3, 6, 8, 10],
-        "Presales Engineer (PSE)": [2, 5, 9],
-        "Sales Development Representative (SDR)": [2, 5, 9],
-        "Channel Account Manager (CAM)": [1, 7, 9],
-        "Inside Sales Account Manager (ISAM)": [3, 6, 7],
-        "Sales Manager (SM)": [4, 8],
-        "Director of Sales (DoS)": [4, 8],
-        "VP of Sales (VP)": [4, 7, 8],
-        "Presales Manager (PM)": [5]
+      "Hybrid Account Manager (HAM)": [3, 6, 8, 10],
+      "Enterprise Account Manager (EAM)": [1, 2, 7, 8, 10],
+      "New Business Account Manager (NBAM)": [1, 2, 9, 10],
+      "Customer Success Manager (CSM)": [1, 3, 6, 8, 10],
+      "Presales Engineer (PSE)": [2, 5, 9],
+      "Sales Development Representative (SDR)": [2, 5, 9],
+      "Channel Account Manager (CAM)": [1, 7, 9],
+      "Inside Sales Account Manager (ISAM)": [3, 6, 7],
+      "Sales Manager (SM)": [4, 8],
+      "Director of Sales (DoS)": [4, 8],
+      "VP of Sales (VP)": [4, 7, 8],
+      "Presales Manager (PM)": [5]
     };
 
-    let answers = new Array(questions.length).fill(null); // Initialize with null values
+    function nextQuestion(questionNum) {
+      // Collect the answer
+      const selectedOption = document.querySelector(`input[name="q${questionNum}"]:checked`);
+      if (!selectedOption) {
+        alert("Please select an option before proceeding.");
+        return;
+      }
 
-    function startTest() {
-        document.getElementById("introSection").style.display = "none";
-        document.getElementById("testForm").style.display = "block";
-        renderQuestions();
+      answers[questionNum - 1] = selectedOption.value;
+
+      // Move to the next question or show results
+      if (questionNum < totalQuestions) {
+        document.getElementById(`question${questionNum}`).classList.remove("active");
+        document.getElementById(`question${questionNum + 1}`).classList.add("active");
+      } else {
+        showResults();
+      }
     }
 
-    function renderQuestions() {
-        const questionContainer = document.getElementById("questionContainer");
-        questionContainer.innerHTML = "";
+    function showResults() {
+      const roleScores = Object.fromEntries(Object.keys(rolesMapping).map(role => [role, 0]));
 
-        questions.forEach((q, index) => {
-            const questionHTML = `
-                <div class="question" id="question${index}">
-                    <p>${q}</p>
-                    <div class="answers">
-                        <label>
-                            <input type="radio" name="q${index}" value="A" onchange="recordAnswer(${index}, 'A')"> A) Option A
-                        </label>
-                        <label>
-                            <input type="radio" name="q${index}" value="B" onchange="recordAnswer(${index}, 'B')"> B) Option B
-                        </label>
-                        <label>
-                            <input type="radio" name="q${index}" value="C" onchange="recordAnswer(${index}, 'C')"> C) Option C
-                        </label>
-                    </div>
-                </div>
-            `;
-            questionContainer.innerHTML += questionHTML;
-        });
-
-        checkSubmitButton();
-    }
-
-    function recordAnswer(questionIndex, answer) {
-        answers[questionIndex] = answer;
-        checkSubmitButton();
-    }
-
-    function checkSubmitButton() {
-        const allAnswered = answers.every(answer => answer !== null);
-        const submitBtn = document.getElementById("submitTestBtn");
-        if (allAnswered) {
-            submitBtn.style.display = "block";
-        } else {
-            submitBtn.style.display = "none";
-        }
-    }
-
-    function submitTest() {
-        const roleScores = {};
-        for (const role in rolesMapping) {
-            roleScores[role] = 0;
-        }
-
-        answers.forEach((answer, index) => {
-            const questionNum = index + 1;
-            for (const role in rolesMapping) {
-                if (rolesMapping[role].includes(questionNum)) {
-                    if (answer === "A" && role in ["HAM", "EAM", "CSM", "CAM"]) {
-                        roleScores[role] += 1;
-                    } else if (answer === "B" && role in ["NBAM", "SDR", "SM", "DoS", "VP"]) {
-                        roleScores[role] += 1;
-                    } else if (answer === "C" && role in ["PSE", "ISAM", "PM", "CSM"]) {
-                        roleScores[role] += 1;
-                    }
-                }
+      // Calculate scores
+      answers.forEach((answer, index) => {
+        const questionNum = index + 1;
+        for (const [role, relatedQuestions] of Object.entries(rolesMapping)) {
+          if (relatedQuestions.includes(questionNum)) {
+            if (
+              (answer === "A" && role.includes("HAM")) ||
+              (answer === "B" && role.includes("NBAM")) ||
+              (answer === "C" && role.includes("PSE"))
+            ) {
+              roleScores[role] += 1;
             }
-        });
+          }
+        }
+      });
 
-        const sortedRoles = Object.entries(roleScores).sort((a, b) => b[1] - a[1]);
-        const bestFit = sortedRoles[0][0];
+      // Sort and display results
+      const sortedRoles = Object.entries(roleScores).sort((a, b) => b[1] - a[1]);
+      const bestFit = sortedRoles[0][0];
+      const scoreOutput = document.getElementById("scoreOutput");
 
-        let resultHTML = `<h2>Test Results</h2>`;
-        sortedRoles.forEach(([role, score]) => {
-            resultHTML += `<p>${role}: ${score} points</p>`;
-        });
-        resultHTML += `<h3>The best-fit role for you is: ${bestFit}</h3>`;
-        
-        document.getElementById("testForm").innerHTML = resultHTML;
+      scoreOutput.innerHTML = `
+        Your best-fit role is: <strong>${bestFit}</strong><br><br>
+        <strong>Full Role Breakdown:</strong><br>
+        ${sortedRoles.map(([role, score]) => `${role}: ${score} points`).join("<br>")}
+      `;
+
+      document.getElementById("results").style.display = "block";
     }
-</script>
-
+  </script>
 </body>
 </html>

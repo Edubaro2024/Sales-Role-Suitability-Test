@@ -3,159 +3,183 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sales Role Assessment Test</title>
+  <title>Sales Role Test</title>
   <style>
-    .question { display: none; }
-    .active { display: block; }
-    #results { display: none; }
-    .results-container { margin-top: 20px; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .results {
+      margin-top: 20px;
+      display: none;
+    }
+    .question label {
+      display: block;
+      margin: 10px 0;
+    }
   </style>
 </head>
 <body>
-  <h1>Sales Role Assessment Test</h1>
-  
-  <!-- Questions Section -->
-  <div id="question1" class="question active">
-    <p>1. How would you describe your leadership style?</p>
-    <label><input type="radio" name="q1" value="A"> Visionary, team-oriented, empowering others</label><br>
-    <label><input type="radio" name="q1" value="B"> Hands-on, leading by example</label><br>
-    <label><input type="radio" name="q1" value="C"> Delegating and trusting team members to execute</label><br>
-    <button onclick="nextQuestion(1)">Next</button>
-  </div>
 
-  <div id="question2" class="question">
-    <p>2. What motivates you the most in your sales career?</p>
-    <label><input type="radio" name="q2" value="A"> Closing deals and achieving targets</label><br>
-    <label><input type="radio" name="q2" value="B"> Building long-term client relationships</label><br>
-    <label><input type="radio" name="q2" value="C"> Developing new business opportunities</label><br>
-    <button onclick="nextQuestion(2)">Next</button>
-  </div>
+  <h1>Sales Role Test</h1>
+  <form id="quizForm">
+    <div class="question">
+      <h3>Question 1: How do you approach closing a large deal?</h3>
+      <input type="radio" name="q1" value="A" id="q1a">
+      <label for="q1a">A) Focus on providing personalized solutions and addressing pain points</label>
+      <input type="radio" name="q1" value="B" id="q1b">
+      <label for="q1b">B) Present multiple options and emphasize the value proposition</label>
+      <input type="radio" name="q1" value="C" id="q1c">
+      <label for="q1c">C) Lead with product features and benefits</label>
+    </div>
 
-  <div id="question3" class="question">
-    <p>3. How do you approach customer engagement?</p>
-    <label><input type="radio" name="q3" value="A"> Proactively reaching out to prospects and clients</label><br>
-    <label><input type="radio" name="q3" value="B"> Listening carefully and responding to customer needs</label><br>
-    <label><input type="radio" name="q3" value="C"> Tailoring solutions and presentations to the customer</label><br>
-    <button onclick="nextQuestion(3)">Next</button>
-  </div>
+    <div class="question">
+      <h3>Question 2: How do you manage a relationship with a key account?</h3>
+      <input type="radio" name="q2" value="A" id="q2a">
+      <label for="q2a">A) Focus on building long-term trust and strategic alignment</label>
+      <input type="radio" name="q2" value="B" id="q2b">
+      <label for="q2b">B) Address immediate needs and offer quick solutions</label>
+      <input type="radio" name="q2" value="C" id="q2c">
+      <label for="q2c">C) Offer promotional deals and incentives to retain business</label>
+    </div>
 
-  <div id="question4" class="question">
-    <p>4. How would you handle a conflict within your sales team?</p>
-    <label><input type="radio" name="q4" value="A"> Address the issue directly, encouraging open communication</label><br>
-    <label><input type="radio" name="q4" value="B"> Let the team resolve it on their own, stepping in only if needed</label><br>
-    <label><input type="radio" name="q4" value="C"> Avoid confrontation and focus on team harmony</label><br>
-    <button onclick="nextQuestion(4)">Next</button>
-  </div>
+    <div class="question">
+      <h3>Question 3: What is your approach to qualifying a lead?</h3>
+      <input type="radio" name="q3" value="A" id="q3a">
+      <label for="q3a">A) Ask open-ended questions and assess budget, timeline, and needs</label>
+      <input type="radio" name="q3" value="B" id="q3b">
+      <label for="q3b">B) Research the company’s financials and recent activity</label>
+      <input type="radio" name="q3" value="C" id="q3c">
+      <label for="q3c">C) Use a sales script and qualify based on standard criteria</label>
+    </div>
 
-  <div id="question5" class="question">
-    <p>5. What is your approach to the technical aspects of a sale?</p>
-    <label><input type="radio" name="q5" value="A"> I rely on technical experts to handle that part</label><br>
-    <label><input type="radio" name="q5" value="B"> I understand the technical details enough to explain them to clients</label><br>
-    <label><input type="radio" name="q5" value="C"> I am very comfortable with technical sales and lead those discussions</label><br>
-    <button onclick="nextQuestion(5)">Next</button>
-  </div>
+    <div class="question">
+      <h3>Question 4: How do you motivate a sales team to achieve their targets?</h3>
+      <input type="radio" name="q4" value="A" id="q4a">
+      <label for="q4a">A) Set clear goals, identify root causes, and coach them individually</label>
+      <input type="radio" name="q4" value="B" id="q4b">
+      <label for="q4b">B) Offer monetary rewards and emphasize competition</label>
+      <input type="radio" name="q4" value="C" id="q4c">
+      <label for="q4c">C) Push them with challenging targets and strong pressure</label>
+    </div>
 
-  <div id="question6" class="question">
-    <p>6. How do you manage customer success post-sale?</p>
-    <label><input type="radio" name="q6" value="A"> Regular check-ins to ensure the customer is satisfied</label><br>
-    <label><input type="radio" name="q6" value="B"> Ensuring customer success is a team effort across departments</label><br>
-    <label><input type="radio" name="q6" value="C"> I trust the customer support team to manage post-sale activities</label><br>
-    <button onclick="nextQuestion(6)">Next</button>
-  </div>
+    <div class="question">
+      <h3>Question 5: How do you handle objections during a negotiation?</h3>
+      <input type="radio" name="q5" value="A" id="q5a">
+      <label for="q5a">A) Acknowledge the concern, ask clarifying questions, and offer solutions</label>
+      <input type="radio" name="q5" value="B" id="q5b">
+      <label for="q5b">B) Present a counter-offer to overcome the objection</label>
+      <input type="radio" name="q5" value="C" id="q5c">
+      <label for="q5c">C) Stick to the original proposal and highlight the product's strengths</label>
+    </div>
 
-  <div id="question7" class="question">
-    <p>7. What is your focus when meeting with senior-level executives?</p>
-    <label><input type="radio" name="q7" value="A"> Strategic alignment and long-term vision</label><br>
-    <label><input type="radio" name="q7" value="B"> Quick wins and measurable results</label><br>
-    <label><input type="radio" name="q7" value="C"> Building rapport and understanding their concerns</label><br>
-    <button onclick="nextQuestion(7)">Next</button>
-  </div>
+    <div class="question">
+      <h3>Question 6: How do you stay up to date with industry trends?</h3>
+      <input type="radio" name="q6" value="A" id="q6a">
+      <label for="q6a">A) Attend conferences, follow industry leaders, and participate in forums</label>
+      <input type="radio" name="q6" value="B" id="q6b">
+      <label for="q6b">B) Read trade publications and monitor competitor activities</label>
+      <input type="radio" name="q6" value="C" id="q6c">
+      <label for="q6c">C) Regularly check social media updates and company newsletters</label>
+    </div>
 
-  <div id="question8" class="question">
-    <p>8. How do you approach executive-level relationships?</p>
-    <label><input type="radio" name="q8" value="A"> Focus on developing long-term partnerships</label><br>
-    <label><input type="radio" name="q8" value="B"> Delivering immediate value and results</label><br>
-    <label><input type="radio" name="q8" value="C"> Maintaining a professional and transactional relationship</label><br>
-    <button onclick="nextQuestion(8)">Next</button>
-  </div>
+    <div class="question">
+      <h3>Question 7: A client is considering switching to a competitor. What do you do?</h3>
+      <input type="radio" name="q7" value="A" id="q7a">
+      <label for="q7a">A) Lean into our trusted relationship, reinforce the value we’ve delivered, and propose a renewal</label>
+      <input type="radio" name="q7" value="B" id="q7b">
+      <label for="q7b">B) Offer discounts and add new features to retain them</label>
+      <input type="radio" name="q7" value="C" id="q7c">
+      <label for="q7c">C) Focus on delivering a better product and drive a competitive advantage</label>
+    </div>
 
-  <div id="question9" class="question">
-    <p>9. How do you handle new business acquisition?</p>
-    <label><input type="radio" name="q9" value="A"> Cold calling and direct outreach to generate leads</label><br>
-    <label><input type="radio" name="q9" value="B"> Relying on inbound leads and referrals</label><br>
-    <label><input type="radio" name="q9" value="C"> Developing strategic partnerships to generate opportunities</label><br>
-    <button onclick="nextQuestion(9)">Next</button>
-  </div>
+    <div class="question">
+      <h3>Question 8: How do you handle large, high-value accounts?</h3>
+      <input type="radio" name="q8" value="A" id="q8a">
+      <label for="q8a">A) Focus on delivering tailored solutions and ensuring high touch</label>
+      <input type="radio" name="q8" value="B" id="q8b">
+      <label for="q8b">B) Build strong, executive-level relationships to secure long-term partnerships</label>
+      <input type="radio" name="q8" value="C" id="q8c">
+      <label for="q8c">C) Focus on closing deals quickly and moving on to the next opportunity</label>
+    </div>
 
-  <div id="question10" class="question">
-    <p>10. How do you measure success in sales?</p>
-    <label><input type="radio" name="q10" value="A"> Meeting or exceeding sales targets and quotas</label><br>
-    <label><input type="radio" name="q10" value="B"> Building strong, long-term client relationships</label><br>
-    <label><input type="radio" name="q10" value="C"> Generating new business opportunities and expanding accounts</label><br>
-    <button onclick="nextQuestion(10)">Next</button>
-  </div>
+    <div class="question">
+      <h3>Question 9: What do you enjoy most about working in sales?</h3>
+      <input type="radio" name="q9" value="A" id="q9a">
+      <label for="q9a">A) Building meaningful, long-term relationships that drive mutual success</label>
+      <input type="radio" name="q9" value="B" id="q9b">
+      <label for="q9b">B) Hitting sales targets and earning commission</label>
+      <input type="radio" name="q9" value="C" id="q9c">
+      <label for="q9c">C) Closing deals and moving on to the next challenge</label>
+    </div>
 
-  <!-- Results Section -->
-  <div id="results" class="results-container">
-    <h2>Your Best Fit Role</h2>
+    <div class="question">
+      <h3>Question 10: How do you measure success in your role?</h3>
+      <input type="radio" name="q10" value="A" id="q10a">
+      <label for="q10a">A) Achieving personal growth, client satisfaction, and team collaboration</label>
+      <input type="radio" name="q10" value="B" id="q10b">
+      <label for="q10b">B) Meeting and exceeding revenue and sales targets</label>
+      <input type="radio" name="q10" value="C" id="q10c">
+      <label for="q10c">C) Hitting short-term milestones and closing deals</label>
+    </div>
+
+    <button type="button" onclick="showResults()">Submit</button>
+  </form>
+
+  <div id="results" class="results">
+    <h3>Results:</h3>
     <p id="scoreOutput"></p>
   </div>
 
   <script>
-    let currentQuestion = 0;
     const totalQuestions = 10;
-    const answers = [];
-    const roleScores = {
-      "Hybrid Account Manager (HAM)": 0,
-      "Enterprise Account Manager (EAM)": 0,
-      "New Business Account Manager (NBAM)": 0,
-      "Customer Success Manager (CSM)": 0,
-      "Presales Engineer (PSE)": 0,
-      "Sales Development Representative (SDR)": 0,
-      "Channel Account Manager (CAM)": 0,
-      "Inside Sales Account Manager (ISAM)": 0,
-      "Sales Manager (SM)": 0,
-      "Director of Sales (DoS)": 0,
-      "VP of Sales (VP)": 0,
-      "Presales Manager (PM)": 0
-    };
 
     const rolesMapping = {
-      "Hybrid Account Manager (HAM)": { questions: [3, 6, 8, 10], weight: 1 },
-      "Enterprise Account Manager (EAM)": { questions: [1, 2, 7, 8, 10], weight: 1 },
-      "New Business Account Manager (NBAM)": { questions: [1, 2, 9, 10], weight: 1 },
-      "Customer Success Manager (CSM)": { questions: [1, 3, 6, 8, 10], weight: 1 },
-      "Presales Engineer (PSE)": { questions: [2, 5, 9], weight: 1 },
-      "Sales Development Representative (SDR)": { questions: [2, 5, 9], weight: 1 },
-      "Channel Account Manager (CAM)": { questions: [1, 7, 9], weight: 1 },
-      "Inside Sales Account Manager (ISAM)": { questions: [3, 6, 7], weight: 1 },
-      "Sales Manager (SM)": { questions: [4, 8], weight: 1 },
-      "Director of Sales (DoS)": { questions: [4, 8], weight: 1 },
-      "VP of Sales (VP)": { questions: [4, 7, 8], weight: 2 },
-      "Presales Manager (PM)": { questions: [5], weight: 1 }
+      "VP of Sales": [4, 7, 8, 9, 10],
+      "Hybrid Account Manager (HAM)": [3, 6, 8, 10],
+      "Enterprise Account Manager (EAM)": [1, 2, 7, 8, 10],
+      "New Business Account Manager (NBAM)": [1, 2, 9, 10],
+      "Customer Success Manager (CSM)": [1, 3, 6, 8, 10],
+      "Presales Engineer (PSE)": [2, 5, 9],
+      "Sales Development Representative (SDR)": [2, 5, 9],
+      "Channel Account Manager (CAM)": [1, 7, 9],
+      "Inside Sales Account Manager (ISAM)": [3, 6, 7],
+      "Sales Manager (SM)": [4, 8],
+      "Director of Sales (DoS)": [4, 8],
+      "Presales Manager (PM)": [5]
     };
 
-    function nextQuestion(questionNum) {
-      if (questionNum < totalQuestions) {
-        document.getElementById(`question${questionNum}`).classList.remove('active');
-        document.getElementById(`question${questionNum + 1}`).classList.add('active');
-      } else {
-        showResults();
-      }
-    }
-
     function showResults() {
+      const roleScores = {
+        "VP of Sales": 0,
+        "Hybrid Account Manager (HAM)": 0,
+        "Enterprise Account Manager (EAM)": 0,
+        "New Business Account Manager (NBAM)": 0,
+        "Customer Success Manager (CSM)": 0,
+        "Presales Engineer (PSE)": 0,
+        "Sales Development Representative (SDR)": 0,
+        "Channel Account Manager (CAM)": 0,
+        "Inside Sales Account Manager (ISAM)": 0,
+        "Sales Manager (SM)": 0,
+        "Director of Sales (DoS)": 0,
+        "Presales Manager (PM)": 0
+      };
+
       for (let i = 1; i <= totalQuestions; i++) {
         const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
         if (selectedOption) {
-          answers[i - 1] = selectedOption.value;
           const answer = selectedOption.value;
           const questionNum = i;
 
-          for (const [role, { questions, weight }] of Object.entries(rolesMapping)) {
-            if (questions.includes(questionNum)) {
-              if (answer === "A" || answer === "B" || answer === "C") {
-                roleScores[role] += weight;
+          for (const [role, relatedQuestions] of Object.entries(rolesMapping)) {
+            if (relatedQuestions.includes(questionNum)) {
+              if ((answer === "A" && role === "VP of Sales") || 
+                  (answer === "B" && role === "VP of Sales") ||
+                  (answer === "C" && role === "VP of Sales")) {
+                roleScores[role] += 1;
               }
             }
           }
@@ -175,5 +199,6 @@
       document.getElementById("results").style.display = "block";
     }
   </script>
+
 </body>
 </html>

@@ -75,9 +75,7 @@
         <input type="radio" name="q2" value="C" onclick="nextQuestion(2)"> Ask questions to uncover unmet needs or potential gaps.<br>
       </div>
     </div>
-    <!-- Add remaining questions here in the same format -->
 
-    <!-- Question 3 -->
     <div class="question" id="question3">
       <label>3. How do you manage competing priorities between multiple clients or tasks?</label>
       <div class="answers">
@@ -87,8 +85,18 @@
       </div>
     </div>
 
-    <!-- Add remaining questions similarly -->
+    <!-- Add more questions in the same format -->
+    <!-- For example -->
+    <div class="question" id="question4">
+      <label>4. What motivates you most in your sales career?</label>
+      <div class="answers">
+        <input type="radio" name="q4" value="A" onclick="nextQuestion(4)"> Achieving high revenue targets and earning recognition.<br>
+        <input type="radio" name="q4" value="B" onclick="nextQuestion(4)"> Building meaningful client relationships and long-term trust.<br>
+        <input type="radio" name="q4" value="C" onclick="nextQuestion(4)"> Helping clients succeed by solving their challenges.<br>
+      </div>
+    </div>
 
+    <!-- Results -->
     <div id="results">
       <h2>Test Results</h2>
       <p id="scoreOutput"></p>
@@ -115,7 +123,6 @@
     };
 
     function nextQuestion(questionNum) {
-      // Collect the answer
       const selectedOption = document.querySelector(`input[name="q${questionNum}"]:checked`);
       if (!selectedOption) {
         alert("Please select an option before proceeding.");
@@ -124,7 +131,6 @@
 
       answers[questionNum - 1] = selectedOption.value;
 
-      // Move to the next question or show results
       if (questionNum < totalQuestions) {
         document.getElementById(`question${questionNum}`).classList.remove("active");
         document.getElementById(`question${questionNum + 1}`).classList.add("active");
@@ -136,7 +142,6 @@
     function showResults() {
       const roleScores = Object.fromEntries(Object.keys(rolesMapping).map(role => [role, 0]));
 
-      // Calculate scores
       answers.forEach((answer, index) => {
         const questionNum = index + 1;
         for (const [role, relatedQuestions] of Object.entries(rolesMapping)) {
@@ -152,7 +157,6 @@
         }
       });
 
-      // Sort and display results
       const sortedRoles = Object.entries(roleScores).sort((a, b) => b[1] - a[1]);
       const bestFit = sortedRoles[0][0];
       const scoreOutput = document.getElementById("scoreOutput");

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Role Suitability Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        p {
+            font-size: 16px;
+            color: #666;
+        }
+        .question {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .answers {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+        }
+        .answers label {
+            background-color: #f2f2f2;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .answers label:hover {
+            background-color: #e0e0e0;
+        }
+        .btn {
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Sales Role Suitability Test</h1>
+    <p>Welcome to the Sales Role Suitability Test! This quick test will help you determine which sales role best fits your skills and preferences.</p>
+    
+    <!-- Starting Button -->
+    <button class="btn" onclick="startTest()">Start the Test</button>
+</div>
+
+<!-- Test Form - Hidden initially -->
+<div class="container" id="testForm" style="display:none;">
+    <h1>Sales Role Suitability Test</h1>
+    <form id="salesTestForm">
+        <div id="questionContainer">
+            <!-- Questions will be dynamically inserted here -->
+        </div>
+        <button class="btn" type="button" onclick="submitTest()">Submit Test</button>
+    </form>
+</div>
+
+<script>
+    // List of questions and answer choices
+    const questions = [
+        {
+            question: "How do you approach building relationships with clients or partners?",
+            options: ["A) I focus on creating long-term, strategic partnerships that benefit both parties.",
+                      "B) I enjoy building quick rapport to close deals and move on to the next opportunity.",
+                      "C) I prioritize understanding client needs and helping them succeed over the long term, whether it’s a new deal or a renewal."]
+        },
+        {
+            question: "A prospect says they’re happy with their current vendor. How do you respond?",
+            options: ["A) Highlight the strategic advantages of partnering with our company and focus on long-term value.",
+                      "B) Offer to set up a demo anyway, showcasing how our solution can outperform their current one.",
+                      "C) Acknowledge their satisfaction but ask questions to uncover unmet needs or potential gaps."]
+        },
+        {
+            question: "How do you manage competing priorities between multiple clients or tasks?",
+            options: ["A) I prioritize based on revenue potential and overall business impact.",
+                      "B) I balance time between new business opportunities and ensuring that renewals are successful.",
+                      "C) I ensure every client feels equally valued, even if some require more attention."]
+        },
+        {
+            question: "How would you motivate a sales team that’s underperforming?",
+            options: ["A) Set clear goals, identify root causes, and coach them individually to improve performance.",
+                      "B) Introduce new incentives and rewards to boost morale and drive results.",
+                      "C) Reevaluate the team’s strategy and shift focus toward higher-value opportunities."]
+        },
+        {
+            question: "When preparing for a product demo with a prospect, what’s your main focus?",
+            options: ["A) Ensuring I understand the technical needs of the prospect and tailoring the demo accordingly.",
+                      "B) Highlighting key features and benefits to make an impactful first impression.",
+                      "C) Anticipating objections and preparing to handle them during the demo."]
+        },
+        {
+            question: "How do you approach retaining an unhappy customer?",
+            options: ["A) Find out the root of their dissatisfaction and work collaboratively to solve their problem.",
+                      "B) Balance solving their concerns while identifying potential new business opportunities.",
+                      "C) Offer additional value, such as discounts or upgrades, to regain their trust."]
+        },
+        {
+            question: "A client you’ve worked with for years is considering switching to a competitor. How do you respond?",
+            options: ["A) Lean into our trusted relationship, reinforce the value we’ve delivered, and propose a renewal with new terms to meet their needs.",
+                      "B) Highlight our company’s unique ability to offer value over the long term, especially for enterprise-scale needs.",
+                      "C) Offer a tactical solution, such as a discount or added features, to keep the client onboard."]
+        },
+        {
+            question: "What’s your priority when managing a large, high-value account?",
+            options: ["A) Ensuring the account feels supported at every stage while identifying upsell opportunities.",
+                      "B) Building strong, executive-level relationships to secure long-term partnerships.",
+                      "C) Proactively tracking performance and intervening to ensure success with both renewals and expansion."]
+        },
+        {
+            question: "What do you enjoy most about working in sales?",
+            options: ["A) Building meaningful, long-term relationships that drive mutual success.",
+                      "B) The thrill of closing deals and achieving immediate results.",
+                      "C) Solving complex problems and delivering technical solutions."]
+        },
+        {
+            question: "How do you measure success in your role?",
+            options: ["A) By building trust and driving high-value renewals or long-term contracts.",
+                      "B) By meeting and exceeding my revenue and sales targets.",
+                      "C) By helping customers achieve measurable success and retaining them as loyal clients."]
+        }
+    ];
+
+    // Function to start the test
+    function startTest() {
+        document.querySelector("button").style.display = "none"; // Hide start button
+        document.getElementById("testForm").style.display = "block"; // Show the test form
+
+        let questionHTML = '';
+        questions.forEach((q, index) => {
+            questionHTML += `
+                <div class="question">
+                    <p>${q.question}</p>
+                    <div class="answers">
+                        ${q.options.map((option, i) => {
+                            return `<label><input type="radio" name="q${index}" value="${String.fromCharCode(65 + i)}" required> ${option}</label>`;
+                        }).join('')}
+                    </div>
+                </div>
+            `;
+        });
+
+        document.getElementById('questionContainer').innerHTML = questionHTML;
+    }
+
+    // Function to submit the test
+    function submitTest() {
+        const form = document.getElementById("salesTestForm");
+        const formData = new FormData(form);
+
+        // Collect answers
+        let answers = [];
+        formData.forEach((value, key) => {
+            answers.push(value);
+        });
+
+        // Calculate results
+        const roleScores = {
+            "Hybrid Account Manager (HAM)": 0,
+            "Enterprise Account Manager (EAM)": 0,
+            "New Business Account Manager (NBAM)": 0,
+            "Customer Success Manager (CSM)": 0,
+            "Presales Engineer (PSE)": 0,
+            "Sales Development Representative (SDR)": 0,
+            "Channel Account Manager (CAM)": 0,
+            "Inside Sales Account Manager (ISAM)": 0,
+            "Sales Manager (SM)": 0,
+            "Director of Sales (DoS)": 0,
+            "VP of Sales (VP)": 0,
+            "Presales Manager (PM)": 0
+        };
+
+        // Define roles and mapping to answers
+        const rolesMapping = {
+            "Hybrid Account Manager (HAM)": [3, 6, 8, 10],
+            "Enterprise Account Manager (EAM)": [1, 2, 7, 8, 10],
+            "New Business Account Manager (NBAM)": [1, 2, 9, 10],
+            "Customer Success Manager (CSM)": [1, 3, 6, 8, 10],
+            "Presales Engineer (PSE)": [2, 5, 9],
+            "Sales Development Representative (SDR)": [2, 5, 9],
+            "Channel Account Manager (CAM)": [1, 7, 9],
+            "Inside Sales Account Manager (ISAM)": [3, 6, 7],
+            "Sales Manager (SM)": [4, 8],
+            "Director of Sales (DoS)": [4, 8],
+            "VP of Sales (VP)": [4, 7, 8],
+            "Presales Manager (PM)": [5]
+        };
+
+        // Scoring
+        answers.forEach((answer, index) => {
+            const questionNum = index + 1;
+            for (let role in rolesMapping) {
+                if (rolesMapping[role].includes(questionNum)) {
+                    if (answer === "A" && role in ["HAM", "EAM", "CSM", "CAM"]) {
+                        roleScores[role] += 1;
+                    } else if (answer === "B" && role in ["NBAM", "SDR", "SM", "DoS", "VP"]) {
+                        roleScores[role] += 1;
+                    } else if (answer === "C" && role in ["PSE", "ISAM", "PM", "CSM"]) {
+                        roleScores[role] += 1;
+                    }
+                }
+            }
+        });
+
+        // Display results
+        const sortedRoles = Object.entries(roleScores).sort((a, b) => b[1] - a[1]);
+        let resultHTML = `<h2>Test Results</h2>`;
+        sortedRoles.forEach(([role, score]) => {
+            resultHTML += `<p>${role}: ${score} points</p>`;
+        });
+
+        const bestFit = sortedRoles[0][0];
+        resultHTML += `<h3>The best-fit role for you is: ${bestFit}</h3>`;
+        
+        document.getElementById('testForm').innerHTML = resultHTML;
+    }
+</script>
+
+</body>
+</html>

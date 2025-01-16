@@ -82,7 +82,7 @@
 <!-- Introduction Section -->
 <div class="container" id="introSection">
     <h1>Sales Role Suitability Test</h1>
-    <p>Welcome to the Sales Role Suitability Test! This quick test will help you determine which sales role best fits your skills and preferences.</p>
+    <p>Welcome to the Sales Role Suitability Test! This quick test will help you determine which sales role best fits your skills and preferences. Answer the questions thoughtfully, and at the end, we’ll suggest a role that matches your profile.</p>
     
     <!-- Next Button to start the test -->
     <button class="next-btn" onclick="startTest()">Next</button>
@@ -166,9 +166,12 @@
 
     // Function to start the test
     function startTest() {
-        document.getElementById("introSection").style.display = "none"; // Hide the intro section
-        document.getElementById("testForm").style.display = "block"; // Show the test form
+        // Hide the intro section
+        document.getElementById("introSection").style.display = "none";
+        // Show the test form section
+        document.getElementById("testForm").style.display = "block";
 
+        // Dynamically generate question elements
         let questionHTML = '';
         questions.forEach((q, index) => {
             questionHTML += `
@@ -229,7 +232,7 @@
             "Presales Manager (PM)": [5]
         };
 
-        // Score calculation based on answers
+        // Score calculation
         answers.forEach((answer, index) => {
             const questionNum = index + 1;
             for (let role in rolesMapping) {

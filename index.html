@@ -95,7 +95,7 @@
         <div id="questionContainer">
             <!-- Questions will be dynamically inserted here -->
         </div>
-        <button class="btn" type="button" onclick="submitTest()">Submit Test</button>
+        <button class="btn" type="button" id="submitTestBtn" style="display: none;" onclick="submitTest()">Submit Test</button>
     </form>
 </div>
 
@@ -194,6 +194,13 @@
         `;
         
         document.getElementById('questionContainer').innerHTML = questionHTML;
+
+        // If it's the last question, show the submit button
+        if (index === questions.length - 1) {
+            document.getElementById('submitTestBtn').style.display = 'block';
+        } else {
+            document.getElementById('submitTestBtn').style.display = 'none';
+        }
     }
 
     // Function to handle the next question logic
@@ -207,22 +214,19 @@
             return;
         }
 
-        // Store the selected answer
+        // Store the answer
         answers.push(selectedAnswer);
 
         // Move to the next question
         currentQuestion++;
 
-        // If there are more questions, show the next one
+        // Show the next question
         if (currentQuestion < questions.length) {
             showQuestion(currentQuestion);
-        } else {
-            // All questions answered, submit the test
-            submitTest();
         }
     }
 
-    // Function to submit the test
+    // Function to submit the test and display results
     function submitTest() {
         const roleScores = {
             "Hybrid Account Manager (HAM)": 0,
@@ -258,17 +262,18 @@
             const questionNum = index + 1;
             for (let role in rolesMapping) {
                 if (rolesMapping[role].includes(questionNum)) {
-                    if (answer === "A" && role in ["HAM", "EAM", "CSM", "CAM"]) {
+                    if (answer === "A" && role === "HAM") {
                         roleScores[role] += 1;
-                    } else if (answer === "B" && role in ["NBAM", "SDR", "SM", "DoS", "VP"]) {
+                    } else if (answer === "B" && role === "EAM") {
                         roleScores[role] += 1;
-                    } else if (answer === "C" && role in ["PSE", "ISAM", "PM", "CSM"]) {
+                    } else if (answer === "C" && role === "SM") {
                         roleScores[role] += 1;
                     }
                 }
             }
         });
 
+        // Calculate and display the best-fit role
         const sortedRoles = Object.entries(roleScores).sort((a, b) => b[1] - a[1]);
         let resultHTML = `<h2>Test Results</h2>`;
         sortedRoles.forEach(([role, score]) => {

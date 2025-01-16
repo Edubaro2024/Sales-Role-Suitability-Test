@@ -34,6 +34,8 @@
       <label for="q1b">B) Present multiple options and emphasize the value proposition</label>
       <input type="radio" name="q1" value="C" id="q1c">
       <label for="q1c">C) Lead with product features and benefits</label>
+      <input type="radio" name="q1" value="D" id="q1d">
+      <label for="q1d">D) Focus on relationship building, leveraging referrals and past successes</label>
     </div>
 
     <div class="question">
@@ -44,6 +46,8 @@
       <label for="q2b">B) Address immediate needs and offer quick solutions</label>
       <input type="radio" name="q2" value="C" id="q2c">
       <label for="q2c">C) Offer promotional deals and incentives to retain business</label>
+      <input type="radio" name="q2" value="D" id="q2d">
+      <label for="q2d">D) Stay involved and provide consistent touchpoints, focusing on customer service</label>
     </div>
 
     <div class="question">
@@ -54,6 +58,8 @@
       <label for="q3b">B) Research the company’s financials and recent activity</label>
       <input type="radio" name="q3" value="C" id="q3c">
       <label for="q3c">C) Use a sales script and qualify based on standard criteria</label>
+      <input type="radio" name="q3" value="D" id="q3d">
+      <label for="q3d">D) Focus on market trends, competitive position, and growth potential</label>
     </div>
 
     <div class="question">
@@ -64,6 +70,8 @@
       <label for="q4b">B) Offer monetary rewards and emphasize competition</label>
       <input type="radio" name="q4" value="C" id="q4c">
       <label for="q4c">C) Push them with challenging targets and strong pressure</label>
+      <input type="radio" name="q4" value="D" id="q4d">
+      <label for="q4d">D) Create a culture of collaboration, mutual support, and team spirit</label>
     </div>
 
     <div class="question">
@@ -74,6 +82,8 @@
       <label for="q5b">B) Present a counter-offer to overcome the objection</label>
       <input type="radio" name="q5" value="C" id="q5c">
       <label for="q5c">C) Stick to the original proposal and highlight the product's strengths</label>
+      <input type="radio" name="q5" value="D" id="q5d">
+      <label for="q5d">D) Use customer feedback and data to address concerns with empathy</label>
     </div>
 
     <div class="question">
@@ -84,6 +94,8 @@
       <label for="q6b">B) Read trade publications and monitor competitor activities</label>
       <input type="radio" name="q6" value="C" id="q6c">
       <label for="q6c">C) Regularly check social media updates and company newsletters</label>
+      <input type="radio" name="q6" value="D" id="q6d">
+      <label for="q6d">D) Participate in online training and development programs</label>
     </div>
 
     <div class="question">
@@ -94,6 +106,8 @@
       <label for="q7b">B) Offer discounts and add new features to retain them</label>
       <input type="radio" name="q7" value="C" id="q7c">
       <label for="q7c">C) Focus on delivering a better product and drive a competitive advantage</label>
+      <input type="radio" name="q7" value="D" id="q7d">
+      <label for="q7d">D) Engage in a consultative conversation to understand their evolving needs</label>
     </div>
 
     <div class="question">
@@ -104,45 +118,50 @@
       <label for="q8b">B) Build strong, executive-level relationships to secure long-term partnerships</label>
       <input type="radio" name="q8" value="C" id="q8c">
       <label for="q8c">C) Focus on closing deals quickly and moving on to the next opportunity</label>
+      <input type="radio" name="q8" value="D" id="q8d">
+      <label for="q8d">D) Provide regular check-ins and ensure consistent value delivery</label>
     </div>
 
     <div class="question">
       <h3>Question 9: What do you enjoy most about working in sales?</h3>
       <input type="radio" name="q9" value="A" id="q9a">
-      <label for="q9a">A) Building meaningful, long-term relationships that drive mutual success</label>
+      <label for="q9a">A) Helping clients solve problems and improve their businesses</label>
       <input type="radio" name="q9" value="B" id="q9b">
-      <label for="q9b">B) Hitting sales targets and earning commission</label>
+      <label for="q9b">B) The thrill of closing big deals and achieving targets</label>
       <input type="radio" name="q9" value="C" id="q9c">
-      <label for="q9c">C) Closing deals and moving on to the next challenge</label>
+      <label for="q9c">C) Building relationships and creating long-term partnerships</label>
+      <input type="radio" name="q9" value="D" id="q9d">
+      <label for="q9d">D) Collaborating with a team to achieve shared success</label>
     </div>
 
     <div class="question">
-      <h3>Question 10: How do you measure success in your role?</h3>
+      <h3>Question 10: How do you prioritize your sales opportunities?</h3>
       <input type="radio" name="q10" value="A" id="q10a">
-      <label for="q10a">A) Achieving personal growth, client satisfaction, and team collaboration</label>
+      <label for="q10a">A) Focus on the most strategic opportunities that align with business objectives</label>
       <input type="radio" name="q10" value="B" id="q10b">
-      <label for="q10b">B) Meeting and exceeding revenue and sales targets</label>
+      <label for="q10b">B) Prioritize by revenue potential and likelihood of closing</label>
       <input type="radio" name="q10" value="C" id="q10c">
-      <label for="q10c">C) Hitting short-term milestones and closing deals</label>
+      <label for="q10c">C) Evaluate based on the strength of relationships and past successes</label>
+      <input type="radio" name="q10" value="D" id="q10d">
+      <label for="q10d">D) Prioritize based on the level of interest and urgency expressed by the client</label>
     </div>
 
     <button type="button" onclick="showResults()">Submit</button>
   </form>
 
-  <div id="results" class="results">
-    <h3>Results:</h3>
+  <div class="results" id="results">
+    <h2>Your Results</h2>
     <p id="scoreOutput"></p>
   </div>
 
   <script>
     const totalQuestions = 10;
-
     const rolesMapping = {
-      "VP of Sales": [4, 7, 8, 9, 10],
-      "Hybrid Account Manager (HAM)": [3, 6, 8, 10],
-      "Enterprise Account Manager (EAM)": [1, 2, 7, 8, 10],
-      "New Business Account Manager (NBAM)": [1, 2, 9, 10],
-      "Customer Success Manager (CSM)": [1, 3, 6, 8, 10],
+      "VP of Sales": [1, 4, 5, 7, 8],
+      "Hybrid Account Manager (HAM)": [2, 3, 6, 9],
+      "Enterprise Account Manager (EAM)": [1, 7, 9, 10],
+      "New Business Account Manager (NBAM)": [2, 4, 6],
+      "Customer Success Manager (CSM)": [3, 6, 8, 10],
       "Presales Engineer (PSE)": [2, 5, 9],
       "Sales Development Representative (SDR)": [2, 5, 9],
       "Channel Account Manager (CAM)": [1, 7, 9],
@@ -178,7 +197,8 @@
             if (relatedQuestions.includes(questionNum)) {
               if ((answer === "A" && role === "VP of Sales") || 
                   (answer === "B" && role === "VP of Sales") ||
-                  (answer === "C" && role === "VP of Sales")) {
+                  (answer === "C" && role === "VP of Sales") ||
+                  (answer === "D" && role === "VP of Sales")) {
                 roleScores[role] += 1;
               }
             }

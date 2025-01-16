@@ -5,306 +5,264 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sales Role Suitability Test</title>
     <style>
-        .question {
-            display: none;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 800px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question h3 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #555;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
         .results {
             display: none;
+            margin-top: 30px;
         }
-        table {
-            width: 50%;
+
+        .results table {
+            width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
         }
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
+
+        .results th, .results td {
             padding: 10px;
-            text-align: center;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .results th {
+            background-color: #f4f7f6;
+        }
+
+        .results td {
+            background-color: #fafafa;
         }
     </style>
 </head>
 <body>
-    <div class="quiz-container">
+    <div class="container">
         <h1>Sales Role Suitability Test</h1>
-        <form name="quizForm">
+        <form id="quizForm">
             <!-- Question 1 -->
-            <div class="question" id="question1">
-                <h3>1. How do you approach generating leads?</h3>
-                <input type="radio" name="q1" value="A" id="q1a">
-                <label for="q1a">A) I reach out directly and consistently to potential leads</label><br>
-                <input type="radio" name="q1" value="B" id="q1b">
-                <label for="q1b">B) I use targeted marketing strategies and wait for inbound interest</label><br>
-                <input type="radio" name="q1" value="C" id="q1c">
-                <label for="q1c">C) I rely on referrals and existing networks to get leads</label><br>
-                <input type="radio" name="q1" value="D" id="q1d">
-                <label for="q1d">D) I leverage social media and online platforms to find new leads</label>
+            <div class="question">
+                <h3>1. How would you describe your ideal sales environment?</h3>
+                <input type="radio" name="q1" value="A" required>
+                <label>A) A fast-paced, target-driven environment with constant new business</label><br>
+                <input type="radio" name="q1" value="B">
+                <label>B) A collaborative environment where I can work with long-term clients</label><br>
+                <input type="radio" name="q1" value="C">
+                <label>C) A more flexible environment where I can focus on customer relationships</label><br>
+                <input type="radio" name="q1" value="D">
+                <label>D) A structured environment with clear procedures and goals</label>
             </div>
 
             <!-- Question 2 -->
-            <div class="question" id="question2">
-                <h3>2. How do you prioritize your tasks when managing your sales pipeline?</h3>
-                <input type="radio" name="q2" value="A" id="q2a">
-                <label for="q2a">A) I focus on the biggest potential deals and high-value clients first</label><br>
-                <input type="radio" name="q2" value="B" id="q2b">
-                <label for="q2b">B) I prioritize based on deadlines and the urgency of deals</label><br>
-                <input type="radio" name="q2" value="C" id="q2c">
-                <label for="q2c">C) I balance between long-term and short-term opportunities</label><br>
-                <input type="radio" name="q2" value="D" id="q2d">
-                <label for="q2d">D) I use CRM tools to track and prioritize all deals systematically</label>
+            <div class="question">
+                <h3>2. What is your primary motivation in a sales role?</h3>
+                <input type="radio" name="q2" value="A" required>
+                <label>A) Achieving sales targets and driving new business growth</label><br>
+                <input type="radio" name="q2" value="B">
+                <label>B) Building long-term relationships and ensuring customer satisfaction</label><br>
+                <input type="radio" name="q2" value="C">
+                <label>C) Delivering exceptional customer service and adding value to existing accounts</label><br>
+                <input type="radio" name="q2" value="D">
+                <label>D) Meeting key account objectives and managing strategic clients</label>
             </div>
 
             <!-- Question 3 -->
-            <div class="question" id="question3">
-                <h3>3. What is your preferred sales method?</h3>
-                <input type="radio" name="q3" value="A" id="q3a">
-                <label for="q3a">A) Solution Selling – Understanding the client’s pain points and offering a tailored solution</label><br>
-                <input type="radio" name="q3" value="B" id="q3b">
-                <label for="q3b">B) Consultative Selling – Acting as an advisor and providing valuable insights</label><br>
-                <input type="radio" name="q3" value="C" id="q3c">
-                <label for="q3c">C) Transactional Selling – Focusing on fast, efficient sales with clear benefits</label><br>
-                <input type="radio" name="q3" value="D" id="q3d">
-                <label for="q3d">D) Relationship Selling – Building long-term relationships and trust with clients</label>
+            <div class="question">
+                <h3>3. How do you prioritize your daily sales tasks?</h3>
+                <input type="radio" name="q3" value="A" required>
+                <label>A) Focus on prospecting and finding new leads</label><br>
+                <input type="radio" name="q3" value="B">
+                <label>B) Managing key accounts and building relationships</label><br>
+                <input type="radio" name="q3" value="C">
+                <label>C) Addressing customer needs and ensuring their satisfaction</label><br>
+                <input type="radio" name="q3" value="D">
+                <label>D) Researching solutions and preparing client presentations</label>
             </div>
 
             <!-- Question 4 -->
-            <div class="question" id="question4">
-                <h3>4. How do you handle rejection in sales?</h3>
-                <input type="radio" name="q4" value="A" id="q4a">
-                <label for="q4a">A) I don't take it personally and quickly move on to the next opportunity</label><br>
-                <input type="radio" name="q4" value="B" id="q4b">
-                <label for="q4b">B) I analyze what went wrong and try to improve for the next opportunity</label><br>
-                <input type="radio" name="q4" value="C" id="q4c">
-                <label for="q4c">C) I address the rejection directly and ask for feedback to improve</label><br>
-                <input type="radio" name="q4" value="D" id="q4d">
-                <label for="q4d">D) I take it as a challenge and push even harder to win the next deal</label>
+            <div class="question">
+                <h3>4. How do you approach client meetings?</h3>
+                <input type="radio" name="q4" value="A" required>
+                <label>A) Confidently present my company and close deals</label><br>
+                <input type="radio" name="q4" value="B">
+                <label>B) Focus on listening to the client’s needs</label><br>
+                <input type="radio" name="q4" value="C">
+                <label>C) Build rapport and develop trust with clients</label><br>
+                <input type="radio" name="q4" value="D">
+                <label>D) Showcase technical expertise and answer complex questions</label>
             </div>
 
             <!-- Question 5 -->
-            <div class="question" id="question5">
-                <h3>5. How do you handle objections during negotiations?</h3>
-                <input type="radio" name="q5" value="A" id="q5a">
-                <label for="q5a">A) I listen carefully, understand the concern, and offer a solution</label><br>
-                <input type="radio" name="q5" value="B" id="q5b">
-                <label for="q5b">B) I offer a discount or incentive to close the deal faster</label><br>
-                <input type="radio" name="q5" value="C" id="q5c">
-                <label for="q5c">C) I negotiate with confidence and present multiple options</label><br>
-                <input type="radio" name="q5" value="D" id="q5d">
-                <label for="q5d">D) I remain flexible and focus on finding a mutually beneficial outcome</label>
+            <div class="question">
+                <h3>5. How do you handle rejection in sales?</h3>
+                <input type="radio" name="q5" value="A" required>
+                <label>A) Move on quickly and focus on the next opportunity</label><br>
+                <input type="radio" name="q5" value="B">
+                <label>B) Analyze what went wrong to improve for the future</label><br>
+                <input type="radio" name="q5" value="C">
+                <label>C) Maintain a positive attitude and keep engaging the client</label><br>
+                <input type="radio" name="q5" value="D">
+                <label>D) Adjust my approach and focus on providing value</label>
             </div>
 
             <!-- Question 6 -->
-            <div class="question" id="question6">
-                <h3>6. How do you prefer to engage with clients?</h3>
-                <input type="radio" name="q6" value="A" id="q6a">
-                <label for="q6a">A) Through frequent, direct communication (calls, emails, meetings)</label><br>
-                <input type="radio" name="q6" value="B" id="q6b">
-                <label for="q6b">B) I focus on building long-term relationships through periodic follow-ups</label><br>
-                <input type="radio" name="q6" value="C" id="q6c">
-                <label for="q6c">C) I aim to solve specific problems efficiently and then move on</label><br>
-                <input type="radio" name="q6" value="D" id="q6d">
-                <label for="q6d">D) I engage with clients through collaborative discussions to understand their needs</label>
+            <div class="question">
+                <h3>6. What is your preferred sales cycle?</h3>
+                <input type="radio" name="q6" value="A" required>
+                <label>A) Short sales cycles with quick decisions</label><br>
+                <input type="radio" name="q6" value="B">
+                <label>B) Medium-length cycles with relationship-building</label><br>
+                <input type="radio" name="q6" value="C">
+                <label>C) Long-term engagements with ongoing value delivery</label><br>
+                <input type="radio" name="q6" value="D">
+                <label>D) Flexible sales cycles depending on client needs</label>
             </div>
 
             <!-- Question 7 -->
-            <div class="question" id="question7">
-                <h3>7. What motivates you in your sales career?</h3>
-                <input type="radio" name="q7" value="A" id="q7a">
-                <label for="q7a">A) Achieving high sales numbers and earning commissions</label><br>
-                <input type="radio" name="q7" value="B" id="q7b">
-                <label for="q7b">B) Building lasting client relationships and providing valuable solutions</label><br>
-                <input type="radio" name="q7" value="C" id="q7c">
-                <label for="q7c">C) Closing deals quickly and efficiently</label><br>
-                <input type="radio" name="q7" value="D" id="q7d">
-                <label for="q7d">D) The opportunity to influence business strategy and growth</label>
+            <div class="question">
+                <h3>7. How do you collaborate with internal teams?</h3>
+                <input type="radio" name="q7" value="A" required>
+                <label>A) Work independently to achieve my targets</label><br>
+                <input type="radio" name="q7" value="B">
+                <label>B) Share insights to help improve team performance</label><br>
+                <input type="radio" name="q7" value="C">
+                <label>C) Partner with other teams to enhance customer experience</label><br>
+                <input type="radio" name="q7" value="D">
+                <label>D) Work closely with technical teams to craft solutions</label>
             </div>
 
             <!-- Question 8 -->
-            <div class="question" id="question8">
-                <h3>8. What type of work environment do you thrive in?</h3>
-                <input type="radio" name="q8" value="A" id="q8a">
-                <label for="q8a">A) Competitive, results-driven environment with clear targets</label><br>
-                <input type="radio" name="q8" value="B" id="q8b">
-                <label for="q8b">B) Collaborative environment with a focus on team success</label><br>
-                <input type="radio" name="q8" value="C" id="q8c">
-                <label for="q8c">C) A structured environment with set procedures and clear guidelines</label><br>
-                <input type="radio" name="q8" value="D" id="q8d">
-                <label for="q8d">D) A dynamic and fast-paced environment with constant challenges</label>
+            <div class="question">
+                <h3>8. How do you measure success in your role?</h3>
+                <input type="radio" name="q8" value="A" required>
+                <label>A) Meeting or exceeding sales quotas</label><br>
+                <input type="radio" name="q8" value="B">
+                <label>B) Building long-lasting client relationships</label><br>
+                <input type="radio" name="q8" value="C">
+                <label>C) Ensuring high customer satisfaction scores</label><br>
+                <input type="radio" name="q8" value="D">
+                <label>D) Delivering innovative solutions to clients</label>
             </div>
 
             <!-- Question 9 -->
-            <div class="question" id="question9">
-                <h3>9. How do you handle customer feedback?</h3>
-                <input type="radio" name="q9" value="A" id="q9a">
-                <label for="q9a">A) I appreciate it and use it to improve my sales techniques</label><br>
-                <input type="radio" name="q9" value="B" id="q9b">
-                <label for="q9b">B) I take it seriously and use it to build stronger customer relationships</label><br>
-                <input type="radio" name="q9" value="C" id="q9c">
-                <label for="q9c">C) I ensure to resolve any issues immediately and follow up on the feedback</label><br>
-                <input type="radio" name="q9" value="D" id="q9d">
-                <label for="q9d">D) I use it as an opportunity to refine my products or services</label>
+            <div class="question">
+                <h3>9. How do you approach competitive challenges?</h3>
+                <input type="radio" name="q9" value="A" required>
+                <label>A) Focus on outperforming competitors with better offers</label><br>
+                <input type="radio" name="q9" value="B">
+                <label>B) Focus on providing a unique customer experience</label><br>
+                <input type="radio" name="q9" value="C">
+                <label>C) Retain clients with trust and consistency</label><br>
+                <input type="radio" name="q9" value="D">
+                <label>D) Highlight technical advantages of our solution</label>
             </div>
 
             <!-- Question 10 -->
-            <div class="question" id="question10">
-                <h3>10. What do you enjoy most about the sales process?</h3>
-                <input type="radio" name="q10" value="A" id="q10a">
-                <label for="q10a">A) Closing deals and achieving sales targets</label><br>
-                <input type="radio" name="q10" value="B" id="q10b">
-                <label for="q10b">B) Building relationships and offering long-term value to clients</label><br>
-                <input type="radio" name="q10" value="C" id="q10c">
-                <label for="q10c">C) The excitement of negotiating and sealing a deal</label><br>
-                <input type="radio" name="q10" value="D" id="q10d">
-                <label for="q10d">D) The opportunity to impact business strategy and grow within a company</label>
+            <div class="question">
+                <h3>10. How do you celebrate success in sales?</h3>
+                <input type="radio" name="q10" value="A" required>
+                <label>A) Move on quickly to the next target</label><br>
+                <input type="radio" name="q10" value="B">
+                <label>B) Share the success with my team</label><br>
+                <input type="radio" name="q10" value="C">
+                <label>C) Thank my clients for their trust and loyalty</label><br>
+                <input type="radio" name="q10" value="D">
+                <label>D) Reflect on what worked and prepare for future opportunities</label>
             </div>
 
-            <div class="results" id="results">
-                <h3>Your Sales Role Suitability</h3>
-                <table>
+            <button type="submit">Submit</button>
+        </form>
+
+        <div class="results">
+            <h3>Your Sales Role Suitability Results</h3>
+            <table>
+                <thead>
                     <tr>
                         <th>Role</th>
                         <th>Score</th>
                     </tr>
+                </thead>
+                <tbody>
                     <tr>
-                        <td>Channel Account Manager</td>
-                        <td id="channelAccountManager"></td>
+                        <td>New Business Development</td>
+                        <td id="resultA">0</td>
                     </tr>
                     <tr>
-                        <td>Renewals Rep</td>
-                        <td id="renewalsRep"></td>
+                        <td>Account Management</td>
+                        <td id="resultB">0</td>
                     </tr>
                     <tr>
-                        <td>Presales</td>
-                        <td id="presales"></td>
+                        <td>Customer Success</td>
+                        <td id="resultC">0</td>
                     </tr>
                     <tr>
-                        <td>Customer Success Manager</td>
-                        <td id="customerSuccessManager"></td>
+                        <td>Technical Sales</td>
+                        <td id="resultD">0</td>
                     </tr>
-                    <tr>
-                        <td>Hybrid Account Manager</td>
-                        <td id="hybridAccountManager"></td>
-                    </tr>
-                    <tr>
-                        <td>New Business Account Manager</td>
-                        <td id="newBusinessAccountManager"></td>
-                    </tr>
-                </table>
-            </div>
-        </form>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <script>
-        let currentQuestion = 0;
-        const questions = document.querySelectorAll('.question');
-        const resultsDiv = document.getElementById('results');
+        document.getElementById("quizForm").addEventListener("submit", function(event) {
+            event.preventDefault();
 
-        const score = {
-            'Channel Account Manager': 0,
-            'Renewals Rep': 0,
-            'Presales': 0,
-            'Customer Success Manager': 0,
-            'Hybrid Account Manager': 0,
-            'New Business Account Manager': 0
-        };
+            const answers = new FormData(event.target);
+            const scores = { A: 0, B: 0, C: 0, D: 0 };
 
-        function showNextQuestion() {
-            if (currentQuestion < questions.length) {
-                questions[currentQuestion].style.display = 'block';
-                currentQuestion++;
-            } else {
-                displayResults();
+            for (let value of answers.values()) {
+                scores[value]++;
             }
-        }
 
-        function displayResults() {
-            resultsDiv.style.display = 'block';
-            document.getElementById('channelAccountManager').innerText = score['Channel Account Manager'];
-            document.getElementById('renewalsRep').innerText = score['Renewals Rep'];
-            document.getElementById('presales').innerText = score['Presales'];
-            document.getElementById('customerSuccessManager').innerText = score['Customer Success Manager'];
-            document.getElementById('hybridAccountManager').innerText = score['Hybrid Account Manager'];
-            document.getElementById('newBusinessAccountManager').innerText = score['New Business Account Manager'];
-        }
+            document.getElementById("resultA").textContent = scores.A;
+            document.getElementById("resultB").textContent = scores.B;
+            document.getElementById("resultC").textContent = scores.C;
+            document.getElementById("resultD").textContent = scores.D;
 
-        function handleAnswer(questionIndex, answer) {
-            // Scoring logic for each role
-            switch(questionIndex) {
-                case 0: // Question 1
-                    if (answer === 'A') score['New Business Account Manager']++;
-                    else if (answer === 'B') score['Hybrid Account Manager']++;
-                    else if (answer === 'C') score['Channel Account Manager']++;
-                    else if (answer === 'D') score['Presales']++;
-                    break;
-                case 1: // Question 2
-                    if (answer === 'A') score['New Business Account Manager']++;
-                    else if (answer === 'B') score['Channel Account Manager']++;
-                    else if (answer === 'C') score['Customer Success Manager']++;
-                    else if (answer === 'D') score['Renewals Rep']++;
-                    break;
-                case 2: // Question 3
-                    if (answer === 'A') score['Presales']++;
-                    else if (answer === 'B') score['Hybrid Account Manager']++;
-                    else if (answer === 'C') score['Channel Account Manager']++;
-                    else if (answer === 'D') score['New Business Account Manager']++;
-                    break;
-                case 3: // Question 4
-                    if (answer === 'A') score['New Business Account Manager']++;
-                    else if (answer === 'B') score['Renewals Rep']++;
-                    else if (answer === 'C') score['Presales']++;
-                    else if (answer === 'D') score['Channel Account Manager']++;
-                    break;
-                case 4: // Question 5
-                    if (answer === 'A') score['Hybrid Account Manager']++;
-                    else if (answer === 'B') score['Renewals Rep']++;
-                    else if (answer === 'C') score['New Business Account Manager']++;
-                    else if (answer === 'D') score['Channel Account Manager']++;
-                    break;
-                case 5: // Question 6
-                    if (answer === 'A') score['Presales']++;
-                    else if (answer === 'B') score['Customer Success Manager']++;
-                    else if (answer === 'C') score['Hybrid Account Manager']++;
-                    else if (answer === 'D') score['Channel Account Manager']++;
-                    break;
-                case 6: // Question 7
-                    if (answer === 'A') score['New Business Account Manager']++;
-                    else if (answer === 'B') score['Customer Success Manager']++;
-                    else if (answer === 'C') score['Presales']++;
-                    else if (answer === 'D') score['Hybrid Account Manager']++;
-                    break;
-                case 7: // Question 8
-                    if (answer === 'A') score['New Business Account Manager']++;
-                    else if (answer === 'B') score['Channel Account Manager']++;
-                    else if (answer === 'C') score['Renewals Rep']++;
-                    else if (answer === 'D') score['Presales']++;
-                    break;
-                case 8: // Question 9
-                    if (answer === 'A') score['Customer Success Manager']++;
-                    else if (answer === 'B') score['Hybrid Account Manager']++;
-                    else if (answer === 'C') score['Channel Account Manager']++;
-                    else if (answer === 'D') score['Renewals Rep']++;
-                    break;
-                case 9: // Question 10
-                    if (answer === 'A') score['New Business Account Manager']++;
-                    else if (answer === 'B') score['Customer Success Manager']++;
-                    else if (answer === 'C') score['Channel Account Manager']++;
-                    else if (answer === 'D') score['Presales']++;
-                    break;
-                default:
-                    break;
-            }
-            showNextQuestion();
-        }
-
-        document.querySelectorAll('input[type="radio"]').forEach(input => {
-            input.addEventListener('change', (event) => {
-                const questionIndex = parseInt(event.target.name.slice(1)) - 1; // Extract question number
-                handleAnswer(questionIndex, event.target.value);
-            });
+            document.querySelector(".results").style.display = "block";
         });
-
-        showNextQuestion();
     </script>
 </body>
 </html>

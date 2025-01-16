@@ -93,4 +93,36 @@
       };
 
       for (let i = 1; i <= totalQuestions; i++) {
-        const selectedOption =
+        const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+        if (selectedOption) {
+          const answer = selectedOption.value;
+          const questionNum = `q${i}`;
+
+          for (const role in rolesMapping) {
+            if (rolesMapping[role][questionNum]) {
+              const roleScore = rolesMapping[role][questionNum][answer];
+              if (roleScore !== undefined) {
+                roleScores[role] += roleScore;
+              }
+            }
+          }
+        }
+      }
+
+      // Sort roles by score
+      const sortedRoles = Object.entries(roleScores).sort((a, b) => b[1] - a[1]);
+      const bestFit = sortedRoles[0][0];
+      const scoreOutput = document.getElementById("scoreOutput");
+
+      scoreOutput.innerHTML = `
+        Your best-fit role is: <strong>${bestFit}</strong><br><br>
+        <strong>Full Role Breakdown:</strong><br>
+        ${sortedRoles.map(([role, score]) => `${role}: ${score} points`).join("<br>")}
+      `;
+      
+      document.getElementById("results").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>

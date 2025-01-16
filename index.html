@@ -58,45 +58,106 @@
   <p>Answer each question to discover which sales role suits you best.</p>
 
   <form id="salesTest">
-    <!-- Questions -->
+    <!-- Question 1 -->
     <div class="question active" id="question1">
-      <label>1. How do you approach building relationships with clients or partners?</label>
+      <label for="q1">1. How do you approach building relationships with clients or partners?</label>
       <div class="answers">
-        <input type="radio" name="q1" value="A" onclick="nextQuestion(1)"> I focus on creating long-term, strategic partnerships that benefit both parties.<br>
-        <input type="radio" name="q1" value="B" onclick="nextQuestion(1)"> I enjoy building quick rapport to close deals and move on to the next opportunity.<br>
-        <input type="radio" name="q1" value="C" onclick="nextQuestion(1)"> I prioritize understanding client needs and helping them succeed over the long term.<br>
+        <input type="radio" name="q1" value="A" onclick="nextQuestion(1)"> A. I focus on creating long-term, strategic partnerships that benefit both parties.<br>
+        <input type="radio" name="q1" value="B" onclick="nextQuestion(1)"> B. I enjoy building quick rapport to close deals and move on to the next opportunity.<br>
+        <input type="radio" name="q1" value="C" onclick="nextQuestion(1)"> C. I prioritize understanding client needs and helping them succeed over the long term, whether it’s a new deal or a renewal.<br>
       </div>
     </div>
+
+    <!-- Question 2 -->
     <div class="question" id="question2">
-      <label>2. A prospect says they’re happy with their current vendor. How do you respond?</label>
+      <label for="q2">2. A prospect says they’re happy with their current vendor. How do you respond?</label>
       <div class="answers">
-        <input type="radio" name="q2" value="A" onclick="nextQuestion(2)"> Highlight the strategic advantages of partnering with our company.<br>
-        <input type="radio" name="q2" value="B" onclick="nextQuestion(2)"> Offer a demo showcasing how our solution can outperform their current one.<br>
-        <input type="radio" name="q2" value="C" onclick="nextQuestion(2)"> Ask questions to uncover unmet needs or potential gaps.<br>
+        <input type="radio" name="q2" value="A" onclick="nextQuestion(2)"> A. Highlight the strategic advantages of partnering with our company and focus on long-term value.<br>
+        <input type="radio" name="q2" value="B" onclick="nextQuestion(2)"> B. Offer to set up a demo anyway, showcasing how our solution can outperform their current one.<br>
+        <input type="radio" name="q2" value="C" onclick="nextQuestion(2)"> C. Acknowledge their satisfaction but ask questions to uncover unmet needs or potential gaps.<br>
       </div>
     </div>
 
+    <!-- Question 3 -->
     <div class="question" id="question3">
-      <label>3. How do you manage competing priorities between multiple clients or tasks?</label>
+      <label for="q3">3. How do you manage competing priorities between multiple clients or tasks?</label>
       <div class="answers">
-        <input type="radio" name="q3" value="A" onclick="nextQuestion(3)"> Prioritize based on revenue potential and business impact.<br>
-        <input type="radio" name="q3" value="B" onclick="nextQuestion(3)"> Balance time between new opportunities and renewals.<br>
-        <input type="radio" name="q3" value="C" onclick="nextQuestion(3)"> Ensure every client feels equally valued.<br>
+        <input type="radio" name="q3" value="A" onclick="nextQuestion(3)"> A. I prioritize based on revenue potential and overall business impact.<br>
+        <input type="radio" name="q3" value="B" onclick="nextQuestion(3)"> B. I balance time between new business opportunities and ensuring that renewals are successful.<br>
+        <input type="radio" name="q3" value="C" onclick="nextQuestion(3)"> C. I ensure every client feels equally valued, even if some require more attention.<br>
       </div>
     </div>
 
-    <!-- Add more questions in the same format -->
-    <!-- For example -->
+    <!-- Question 4 -->
     <div class="question" id="question4">
-      <label>4. What motivates you most in your sales career?</label>
+      <label for="q4">4. How would you motivate a sales team that’s underperforming?</label>
       <div class="answers">
-        <input type="radio" name="q4" value="A" onclick="nextQuestion(4)"> Achieving high revenue targets and earning recognition.<br>
-        <input type="radio" name="q4" value="B" onclick="nextQuestion(4)"> Building meaningful client relationships and long-term trust.<br>
-        <input type="radio" name="q4" value="C" onclick="nextQuestion(4)"> Helping clients succeed by solving their challenges.<br>
+        <input type="radio" name="q4" value="A" onclick="nextQuestion(4)"> A. Set clear goals, identify root causes, and coach them individually to improve performance.<br>
+        <input type="radio" name="q4" value="B" onclick="nextQuestion(4)"> B. Introduce new incentives and rewards to boost morale and drive results.<br>
+        <input type="radio" name="q4" value="C" onclick="nextQuestion(4)"> C. Reevaluate the team’s strategy and shift focus toward higher-value opportunities.<br>
       </div>
     </div>
 
-    <!-- Results -->
+    <!-- Question 5 -->
+    <div class="question" id="question5">
+      <label for="q5">5. When preparing for a product demo with a prospect, what’s your main focus?</label>
+      <div class="answers">
+        <input type="radio" name="q5" value="A" onclick="nextQuestion(5)"> A. Ensuring I understand the technical needs of the prospect and tailoring the demo accordingly.<br>
+        <input type="radio" name="q5" value="B" onclick="nextQuestion(5)"> B. Highlighting key features and benefits to make an impactful first impression.<br>
+        <input type="radio" name="q5" value="C" onclick="nextQuestion(5)"> C. Anticipating objections and preparing to handle them during the demo.<br>
+      </div>
+    </div>
+
+    <!-- Question 6 -->
+    <div class="question" id="question6">
+      <label for="q6">6. How do you approach retaining an unhappy customer?</label>
+      <div class="answers">
+        <input type="radio" name="q6" value="A" onclick="nextQuestion(6)"> A. Find out the root of their dissatisfaction and work collaboratively to solve their problem.<br>
+        <input type="radio" name="q6" value="B" onclick="nextQuestion(6)"> B. Balance solving their concerns while identifying potential new business opportunities.<br>
+        <input type="radio" name="q6" value="C" onclick="nextQuestion(6)"> C. Offer additional value, such as discounts or upgrades, to regain their trust.<br>
+      </div>
+    </div>
+
+    <!-- Question 7 -->
+    <div class="question" id="question7">
+      <label for="q7">7. A client you’ve worked with for years is considering switching to a competitor. How do you respond?</label>
+      <div class="answers">
+        <input type="radio" name="q7" value="A" onclick="nextQuestion(7)"> A. Lean into our trusted relationship, reinforce the value we’ve delivered, and propose a renewal with new terms to meet their needs.<br>
+        <input type="radio" name="q7" value="B" onclick="nextQuestion(7)"> B. Highlight our company’s unique ability to offer value over the long term, especially for enterprise-scale needs.<br>
+        <input type="radio" name="q7" value="C" onclick="nextQuestion(7)"> C. Offer a tactical solution, such as a discount or added features, to keep the client onboard.<br>
+      </div>
+    </div>
+
+    <!-- Question 8 -->
+    <div class="question" id="question8">
+      <label for="q8">8. What’s your priority when managing a large, high-value account?</label>
+      <div class="answers">
+        <input type="radio" name="q8" value="A" onclick="nextQuestion(8)"> A. Ensuring the account feels supported at every stage while identifying upsell opportunities.<br>
+        <input type="radio" name="q8" value="B" onclick="nextQuestion(8)"> B. Building strong, executive-level relationships to secure long-term partnerships.<br>
+        <input type="radio" name="q8" value="C" onclick="nextQuestion(8)"> C. Proactively tracking performance and intervening to ensure success with both renewals and expansion.<br>
+      </div>
+    </div>
+
+    <!-- Question 9 -->
+    <div class="question" id="question9">
+      <label for="q9">9. What do you enjoy most about working in sales?</label>
+      <div class="answers">
+        <input type="radio" name="q9" value="A" onclick="nextQuestion(9)"> A. Building meaningful, long-term relationships that drive mutual success.<br>
+        <input type="radio" name="q9" value="B" onclick="nextQuestion(9)"> B. The thrill of closing deals and achieving immediate results.<br>
+        <input type="radio" name="q9" value="C" onclick="nextQuestion(9)"> C. Solving complex problems and delivering technical solutions.<br>
+      </div>
+    </div>
+
+    <!-- Question 10 -->
+    <div class="question" id="question10">
+      <label for="q10">10. How do you measure success in your role?</label>
+      <div class="answers">
+        <input type="radio" name="q10" value="A" onclick="nextQuestion(10)"> A. By building trust and driving high-value renewals or long-term contracts.<br>
+        <input type="radio" name="q10" value="B" onclick="nextQuestion(10)"> B. By meeting and exceeding my revenue and sales targets.<br>
+        <input type="radio" name="q10" value="C" onclick="nextQuestion(10)"> C. By helping customers achieve measurable success and retaining them as loyal clients.<br>
+      </div>
+    </div>
+
     <div id="results">
       <h2>Test Results</h2>
       <p id="scoreOutput"></p>
@@ -104,8 +165,8 @@
   </form>
 
   <script>
-    let currentQuestion = 1;
-    const totalQuestions = 10; // Adjust as needed
+    let currentQuestion = 0;
+    const totalQuestions = 10;
     const answers = [];
     const rolesMapping = {
       "Hybrid Account Manager (HAM)": [3, 6, 8, 10],
@@ -123,50 +184,59 @@
     };
 
     function nextQuestion(questionNum) {
-      const selectedOption = document.querySelector(`input[name="q${questionNum}"]:checked`);
-      if (!selectedOption) {
-        alert("Please select an option before proceeding.");
-        return;
-      }
-
-      answers[questionNum - 1] = selectedOption.value;
-
       if (questionNum < totalQuestions) {
-        document.getElementById(`question${questionNum}`).classList.remove("active");
-        document.getElementById(`question${questionNum + 1}`).classList.add("active");
+        document.getElementById(`question${questionNum}`).classList.remove('active');
+        document.getElementById(`question${questionNum + 1}`).classList.add('active');
       } else {
         showResults();
       }
     }
 
     function showResults() {
-      const roleScores = Object.fromEntries(Object.keys(rolesMapping).map(role => [role, 0]));
+      const roleScores = {
+        "Hybrid Account Manager (HAM)": 0,
+        "Enterprise Account Manager (EAM)": 0,
+        "New Business Account Manager (NBAM)": 0,
+        "Customer Success Manager (CSM)": 0,
+        "Presales Engineer (PSE)": 0,
+        "Sales Development Representative (SDR)": 0,
+        "Channel Account Manager (CAM)": 0,
+        "Inside Sales Account Manager (ISAM)": 0,
+        "Sales Manager (SM)": 0,
+        "Director of Sales (DoS)": 0,
+        "VP of Sales (VP)": 0,
+        "Presales Manager (PM)": 0
+      };
 
-      answers.forEach((answer, index) => {
-        const questionNum = index + 1;
-        for (const [role, relatedQuestions] of Object.entries(rolesMapping)) {
-          if (relatedQuestions.includes(questionNum)) {
-            if (
-              (answer === "A" && role.includes("HAM")) ||
-              (answer === "B" && role.includes("NBAM")) ||
-              (answer === "C" && role.includes("PSE"))
-            ) {
-              roleScores[role] += 1;
+      for (let i = 1; i <= totalQuestions; i++) {
+        const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+        if (selectedOption) {
+          answers[i - 1] = selectedOption.value;
+          const answer = selectedOption.value;
+          const questionNum = i;
+
+          for (const [role, relatedQuestions] of Object.entries(rolesMapping)) {
+            if (relatedQuestions.includes(questionNum)) {
+              if ((answer === "A" && role.includes("HAM")) ||
+                  (answer === "B" && role.includes("NBAM")) ||
+                  (answer === "C" && role.includes("PSE"))) {
+                roleScores[role] += 1;
+              }
             }
           }
         }
-      });
+      }
 
       const sortedRoles = Object.entries(roleScores).sort((a, b) => b[1] - a[1]);
       const bestFit = sortedRoles[0][0];
       const scoreOutput = document.getElementById("scoreOutput");
-
+      
       scoreOutput.innerHTML = `
         Your best-fit role is: <strong>${bestFit}</strong><br><br>
         <strong>Full Role Breakdown:</strong><br>
         ${sortedRoles.map(([role, score]) => `${role}: ${score} points`).join("<br>")}
       `;
-
+      
       document.getElementById("results").style.display = "block";
     }
   </script>

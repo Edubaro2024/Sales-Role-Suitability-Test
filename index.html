@@ -164,6 +164,9 @@
         }
     ];
 
+    let currentQuestion = 0; // To track the current question
+    let answers = []; // To store the answers
+
     // Function to start the test
     function startTest() {
         // Hide the intro section
@@ -171,36 +174,56 @@
         // Show the test form section
         document.getElementById("testForm").style.display = "block";
 
-        // Dynamically generate question elements
-        let questionHTML = '';
-        questions.forEach((q, index) => {
-            questionHTML += `
-                <div class="question">
-                    <p>${q.question}</p>
-                    <div class="answers">
-                        ${q.options.map((option, i) => {
-                            return `<label><input type="radio" name="q${index}" value="${String.fromCharCode(65 + i)}" required> ${option}</label>`;
-                        }).join('')}
-                    </div>
-                </div>
-            `;
-        });
+        // Show the first question
+        showQuestion(currentQuestion);
+    }
 
+    // Function to show the next question
+    function showQuestion(index) {
+        const question = questions[index];
+        let questionHTML = `
+            <div class="question">
+                <p>${question.question}</p>
+                <div class="answers">
+                    ${question.options.map((option, i) => {
+                        return `<label><input type="radio" name="q${index}" value="${String.fromCharCode(65 + i)}" required> ${option}</label>`;
+                    }).join('')}
+                </div>
+                <button class="next-btn" onclick="nextQuestion()">Next</button>
+            </div>
+        `;
+        
         document.getElementById('questionContainer').innerHTML = questionHTML;
+    }
+
+    // Function to handle the next question logic
+    function nextQuestion() {
+        const form = document.getElementById("salesTestForm");
+        const formData = new FormData(form);
+        const selectedAnswer = formData.get(`q${currentQuestion}`);
+
+        if (!selectedAnswer) {
+            alert("Please answer the question before proceeding.");
+            return;
+        }
+
+        // Store the selected answer
+        answers.push(selectedAnswer);
+
+        // Move to the next question
+        currentQuestion++;
+
+        // If there are more questions, show the next one
+        if (currentQuestion < questions.length) {
+            showQuestion(currentQuestion);
+        } else {
+            // All questions answered, submit the test
+            submitTest();
+        }
     }
 
     // Function to submit the test
     function submitTest() {
-        const form = document.getElementById("salesTestForm");
-        const formData = new FormData(form);
-
-        // Collect answers
-        let answers = [];
-        formData.forEach((value, key) => {
-            answers.push(value);
-        });
-
-        // Calculate results
         const roleScores = {
             "Hybrid Account Manager (HAM)": 0,
             "Enterprise Account Manager (EAM)": 0,
@@ -216,7 +239,6 @@
             "Presales Manager (PM)": 0
         };
 
-        // Define roles and mapping to answers
         const rolesMapping = {
             "Hybrid Account Manager (HAM)": [3, 6, 8, 10],
             "Enterprise Account Manager (EAM)": [1, 2, 7, 8, 10],
@@ -232,7 +254,6 @@
             "Presales Manager (PM)": [5]
         };
 
-        // Score calculation
         answers.forEach((answer, index) => {
             const questionNum = index + 1;
             for (let role in rolesMapping) {
@@ -248,7 +269,6 @@
             }
         });
 
-        // Display results
         const sortedRoles = Object.entries(roleScores).sort((a, b) => b[1] - a[1]);
         let resultHTML = `<h2>Test Results</h2>`;
         sortedRoles.forEach(([role, score]) => {

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -168,7 +169,8 @@
       "Inside Sales Account Manager (ISAM)": [3, 6, 7],
       "Sales Manager (SM)": [4, 8],
       "Director of Sales (DoS)": [4, 8],
-      "Presales Manager (PM)": [5]
+      "Presales Manager (PM)": [5],
+      "Renewals Sales (RS)": [4, 7, 8, 10]
     };
 
     function showResults() {
@@ -184,7 +186,8 @@
         "Inside Sales Account Manager (ISAM)": 0,
         "Sales Manager (SM)": 0,
         "Director of Sales (DoS)": 0,
-        "Presales Manager (PM)": 0
+        "Presales Manager (PM)": 0,
+        "Renewals Sales (RS)": 0
       };
 
       for (let i = 1; i <= totalQuestions; i++) {
@@ -195,10 +198,10 @@
 
           for (const [role, relatedQuestions] of Object.entries(rolesMapping)) {
             if (relatedQuestions.includes(questionNum)) {
-              if ((answer === "A" && role === "VP of Sales") || 
-                  (answer === "B" && role === "VP of Sales") ||
-                  (answer === "C" && role === "VP of Sales") ||
-                  (answer === "D" && role === "VP of Sales")) {
+              if ((answer === "A" && role === "Renewals Sales (RS)") || 
+                  (answer === "B" && role === "Renewals Sales (RS)") ||
+                  (answer === "C" && role === "Renewals Sales (RS)") ||
+                  (answer === "D" && role === "Renewals Sales (RS)")) {
                 roleScores[role] += 1;
               }
             }

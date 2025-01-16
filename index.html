@@ -26,7 +26,7 @@
 
   <h1>Sales Role Test</h1>
   <form id="quizForm">
-    <!-- Questions -->
+    <!-- Example Question 1 -->
     <div class="question">
       <h3>Question 1: How do you approach closing a large deal?</h3>
       <input type="radio" name="q1" value="A" id="q1a">
@@ -39,6 +39,7 @@
       <label for="q1d">D) Focus on relationship building, leveraging referrals and past successes</label>
     </div>
 
+    <!-- Example Question 2 -->
     <div class="question">
       <h3>Question 2: How do you manage a relationship with a key account?</h3>
       <input type="radio" name="q2" value="A" id="q2a">
@@ -51,7 +52,7 @@
       <label for="q2d">D) Stay involved and provide consistent touchpoints, focusing on customer service</label>
     </div>
 
-    <!-- More Questions as per your original setup... -->
+    <!-- More questions go here -->
 
     <button type="button" onclick="showResults()">Submit</button>
   </form>
@@ -68,19 +69,19 @@
       "VP of Sales": {
         "q1": { "A": 3, "B": 2, "C": 1, "D": 0 },
         "q2": { "A": 3, "B": 0, "C": 1, "D": 2 },
-        // Additional mapping for all other questions...
+        // More question mappings...
       },
       "Hybrid Account Manager": {
         "q1": { "A": 1, "B": 3, "C": 2, "D": 0 },
         "q2": { "A": 2, "B": 1, "C": 0, "D": 3 },
-        // Additional mapping for all other questions...
+        // More question mappings...
       },
       "Renewals Sales": {
         "q1": { "A": 2, "B": 1, "C": 0, "D": 3 },
         "q2": { "A": 3, "B": 2, "C": 0, "D": 1 },
-        // Additional mapping for all other questions...
+        // More question mappings...
       },
-      // Add other roles as required...
+      // Add more roles as needed...
     };
 
     function showResults() {
@@ -92,36 +93,4 @@
       };
 
       for (let i = 1; i <= totalQuestions; i++) {
-        const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
-        if (selectedOption) {
-          const answer = selectedOption.value;
-          const questionNum = `q${i}`;
-
-          for (const role in rolesMapping) {
-            if (rolesMapping[role][questionNum]) {
-              const roleScore = rolesMapping[role][questionNum][answer];
-              if (roleScore !== undefined) {
-                roleScores[role] += roleScore;
-              }
-            }
-          }
-        }
-      }
-
-      // Sort roles by score
-      const sortedRoles = Object.entries(roleScores).sort((a, b) => b[1] - a[1]);
-      const bestFit = sortedRoles[0][0];
-      const scoreOutput = document.getElementById("scoreOutput");
-
-      scoreOutput.innerHTML = `
-        Your best-fit role is: <strong>${bestFit}</strong><br><br>
-        <strong>Full Role Breakdown:</strong><br>
-        ${sortedRoles.map(([role, score]) => `${role}: ${score} points`).join("<br>")}
-      `;
-      
-      document.getElementById("results").style.display = "block";
-    }
-  </script>
-
-</body>
-</html>
+        const selectedOption =

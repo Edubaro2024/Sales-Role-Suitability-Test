@@ -60,19 +60,35 @@
         .btn:hover {
             background-color: #45a049;
         }
+        .next-btn {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+        }
+        .next-btn:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
+<!-- Introduction Section -->
+<div class="container" id="introSection">
     <h1>Sales Role Suitability Test</h1>
     <p>Welcome to the Sales Role Suitability Test! This quick test will help you determine which sales role best fits your skills and preferences.</p>
     
-    <!-- Starting Button -->
-    <button class="btn" onclick="startTest()">Start the Test</button>
+    <!-- Next Button to start the test -->
+    <button class="next-btn" onclick="startTest()">Next</button>
 </div>
 
-<!-- Test Form - Hidden initially -->
+<!-- Test Form Section - Hidden initially -->
 <div class="container" id="testForm" style="display:none;">
     <h1>Sales Role Suitability Test</h1>
     <form id="salesTestForm">
@@ -150,7 +166,7 @@
 
     // Function to start the test
     function startTest() {
-        document.querySelector("button").style.display = "none"; // Hide start button
+        document.getElementById("introSection").style.display = "none"; // Hide the intro section
         document.getElementById("testForm").style.display = "block"; // Show the test form
 
         let questionHTML = '';
@@ -213,7 +229,7 @@
             "Presales Manager (PM)": [5]
         };
 
-        // Scoring
+        // Score calculation based on answers
         answers.forEach((answer, index) => {
             const questionNum = index + 1;
             for (let role in rolesMapping) {

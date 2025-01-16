@@ -20,15 +20,25 @@
       display: block;
       margin: 10px 0;
     }
+    .question input {
+      margin-right: 10px;
+    }
+    .btn {
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
 
   <h1>Sales Role Test</h1>
   <form id="quizForm">
-    <!-- Example Question 1 -->
+    <!-- Question 1 -->
     <div class="question">
-      <h3>Question 1: How do you approach closing a large deal?</h3>
+      <h3>1. How do you approach closing a large deal?</h3>
       <input type="radio" name="q1" value="A" id="q1a">
       <label for="q1a">A) Focus on providing personalized solutions and addressing pain points</label>
       <input type="radio" name="q1" value="B" id="q1b">
@@ -39,88 +49,182 @@
       <label for="q1d">D) Focus on relationship building, leveraging referrals and past successes</label>
     </div>
 
-    <!-- Example Question 2 -->
+    <!-- Question 2 -->
     <div class="question">
-      <h3>Question 2: How do you manage a relationship with a key account?</h3>
+      <h3>2. How do you manage a relationship with a key account?</h3>
       <input type="radio" name="q2" value="A" id="q2a">
-      <label for="q2a">A) Focus on building long-term trust and strategic alignment</label>
+      <label for="q2a">A) Proactively find upsell opportunities and build long-term strategy</label>
       <input type="radio" name="q2" value="B" id="q2b">
-      <label for="q2b">B) Address immediate needs and offer quick solutions</label>
+      <label for="q2b">B) Maintain consistent contact and solve issues as they arise</label>
       <input type="radio" name="q2" value="C" id="q2c">
-      <label for="q2c">C) Offer promotional deals and incentives to retain business</label>
+      <label for="q2c">C) Focus on resolving problems quickly and ensuring satisfaction</label>
       <input type="radio" name="q2" value="D" id="q2d">
-      <label for="q2d">D) Stay involved and provide consistent touchpoints, focusing on customer service</label>
+      <label for="q2d">D) Nurture the relationship through regular communication and check-ins</label>
     </div>
 
-    <!-- More questions go here -->
+    <!-- Question 3 -->
+    <div class="question">
+      <h3>3. When closing a deal, how do you ensure customer satisfaction?</h3>
+      <input type="radio" name="q3" value="A" id="q3a">
+      <label for="q3a">A) Offer tailored solutions that exactly match their business needs</label>
+      <input type="radio" name="q3" value="B" id="q3b">
+      <label for="q3b">B) Make sure the terms are flexible to accommodate their budget and timeline</label>
+      <input type="radio" name="q3" value="C" id="q3c">
+      <label for="q3c">C) Deliver a well-rounded presentation showcasing all aspects of the product</label>
+      <input type="radio" name="q3" value="D" id="q3d">
+      <label for="q3d">D) Focus on ongoing support and follow-up after the deal closes</label>
+    </div>
 
-    <button type="button" onclick="showResults()">Submit</button>
+    <!-- Question 4 -->
+    <div class="question">
+      <h3>4. How do you prioritize your sales targets?</h3>
+      <input type="radio" name="q4" value="A" id="q4a">
+      <label for="q4a">A) Focus on closing high-value strategic accounts</label>
+      <input type="radio" name="q4" value="B" id="q4b">
+      <label for="q4b">B) Prioritize accounts with the greatest potential for upsell and renewals</label>
+      <input type="radio" name="q4" value="C" id="q4c">
+      <label for="q4c">C) Manage a mix of enterprise and SMB accounts to ensure consistent revenue</label>
+      <input type="radio" name="q4" value="D" id="q4d">
+      <label for="q4d">D) Identify and target fast-growing industries with high growth potential</label>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question">
+      <h3>5. How do you approach team management in a sales environment?</h3>
+      <input type="radio" name="q5" value="A" id="q5a">
+      <label for="q5a">A) Set clear KPIs and drive performance through accountability</label>
+      <input type="radio" name="q5" value="B" id="q5b">
+      <label for="q5b">B) Motivate through mentorship and empower team members to close their own deals</label>
+      <input type="radio" name="q5" value="C" id="q5c">
+      <label for="q5c">C) Focus on fostering strong individual relationships with key clients</label>
+      <input type="radio" name="q5" value="D" id="q5d">
+      <label for="q5d">D) Facilitate a collaborative environment to ensure team alignment on strategy</label>
+    </div>
+
+    <!-- Question 6 -->
+    <div class="question">
+      <h3>6. How do you handle objections during a sales pitch?</h3>
+      <input type="radio" name="q6" value="A" id="q6a">
+      <label for="q6a">A) Use detailed case studies to demonstrate product success in similar industries</label>
+      <input type="radio" name="q6" value="B" id="q6b">
+      <label for="q6b">B) Present data-driven proof and address each concern one by one</label>
+      <input type="radio" name="q6" value="C" id="q6c">
+      <label for="q6c">C) Respond with empathy and focus on understanding the client's core issue</label>
+      <input type="radio" name="q6" value="D" id="q6d">
+      <label for="q6d">D) Offer alternatives and demonstrate flexibility in product/service offering</label>
+    </div>
+
+    <!-- Question 7 -->
+    <div class="question">
+      <h3>7. How do you identify new sales opportunities?</h3>
+      <input type="radio" name="q7" value="A" id="q7a">
+      <label for="q7a">A) Conduct thorough market research and identify untapped segments</label>
+      <input type="radio" name="q7" value="B" id="q7b">
+      <label for="q7b">B) Network with key industry players and attend relevant events</label>
+      <input type="radio" name="q7" value="C" id="q7c">
+      <label for="q7c">C) Leverage CRM data to find patterns and predict future opportunities</label>
+      <input type="radio" name="q7" value="D" id="q7d">
+      <label for="q7d">D) Build a referral pipeline and capitalize on word-of-mouth marketing</label>
+    </div>
+
+    <!-- Question 8 -->
+    <div class="question">
+      <h3>8. What is your preferred sales strategy?</h3>
+      <input type="radio" name="q8" value="A" id="q8a">
+      <label for="q8a">A) Targeting large enterprises with complex buying cycles</label>
+      <input type="radio" name="q8" value="B" id="q8b">
+      <label for="q8b">B) Aggressive outbound prospecting and qualifying leads quickly</label>
+      <input type="radio" name="q8" value="C" id="q8c">
+      <label for="q8c">C) Consultative sales approach, focusing on long-term partnerships</label>
+      <input type="radio" name="q8" value="D" id="q8d">
+      <label for="q8d">D) Strategic outreach to mid-market companies with specific needs</label>
+    </div>
+
+    <!-- Question 9 -->
+    <div class="question">
+      <h3>9. How do you handle a large portfolio of accounts?</h3>
+      <input type="radio" name="q9" value="A" id="q9a">
+      <label for="q9a">A) Segment and prioritize accounts based on size and potential value</label>
+      <input type="radio" name="q9" value="B" id="q9b">
+      <label for="q9b">B) Focus on nurturing relationships with key accounts while managing smaller ones</label>
+      <input type="radio" name="q9" value="C" id="q9c">
+      <label for="q9c">C) Monitor each account’s progress and adjust resources based on growth potential</label>
+      <input type="radio" name="q9" value="D" id="q9d">
+      <label for="q9d">D) Delegate accounts to team members and monitor overall performance</label>
+    </div>
+
+    <!-- Question 10 -->
+    <div class="question">
+      <h3>10. How do you maintain motivation and productivity in your sales role?</h3>
+      <input type="radio" name="q10" value="A" id="q10a">
+      <label for="q10a">A) Set personal and team goals to track progress and celebrate milestones</label>
+      <input type="radio" name="q10" value="B" id="q10b">
+      <label for="q10b">B) Take regular breaks and focus on a work-life balance to avoid burnout</label>
+      <input type="radio" name="q10" value="C" id="q10c">
+      <label for="q10c">C) Continuously improve through training and learning new sales techniques</label>
+      <input type="radio" name="q10" value="D" id="q10d">
+      <label for="q10d">D) Focus on consistent results and push yourself to meet targets every day</label>
+    </div>
+
+    <button type="button" class="btn" onclick="calculateResult()">Submit</button>
   </form>
 
-  <div class="results" id="results">
-    <h2>Your Results</h2>
-    <p id="scoreOutput"></p>
+  <div class="results">
+    <h2>Your Role: <span id="role"></span></h2>
+    <p>Your score breakdown:</p>
+    <ul id="scoreBreakdown"></ul>
   </div>
 
   <script>
-    const totalQuestions = 10;
-
-    const rolesMapping = {
-      "VP of Sales": {
-        "q1": { "A": 3, "B": 2, "C": 1, "D": 0 },
-        "q2": { "A": 3, "B": 0, "C": 1, "D": 2 },
-        // More question mappings...
-      },
-      "Hybrid Account Manager": {
-        "q1": { "A": 1, "B": 3, "C": 2, "D": 0 },
-        "q2": { "A": 2, "B": 1, "C": 0, "D": 3 },
-        // More question mappings...
-      },
-      "Renewals Sales": {
-        "q1": { "A": 2, "B": 1, "C": 0, "D": 3 },
-        "q2": { "A": 3, "B": 2, "C": 0, "D": 1 },
-        // More question mappings...
-      },
-      // Add more roles as needed...
+    const roleScores = {
+      "VP of Sales": 0,
+      "Hybrid Account Manager": 0,
+      "Renewals Sales": 0,
+      "Account Executive": 0,
+      "Sales Manager": 0,
+      "Customer Success Manager": 0,
+      "Sales Development Representative": 0,
+      "Channel Account Manager": 0,
+      "Presales Engineer": 0,
+      "Sales Director": 0
     };
 
-    function showResults() {
-      const roleScores = {
-        "VP of Sales": 0,
-        "Hybrid Account Manager": 0,
-        "Renewals Sales": 0,
-        // Other roles...
-      };
+    const scoringMatrix = {
+      "q1": {
+        "A": { "VP of Sales": 3, "Hybrid Account Manager": 2, "Sales Manager": 1 },
+        "B": { "Sales Director": 3, "Renewals Sales": 2, "Customer Success Manager": 1 },
+        "C": { "Sales Development Representative": 3, "Account Executive": 2, "Channel Account Manager": 1 },
+        "D": { "Presales Engineer": 3, "Customer Success Manager": 2, "Sales Manager": 1 }
+      },
+      // Add scoring for other questions similarly...
+      // For each answer, associate points for each role.
+    };
 
-      for (let i = 1; i <= totalQuestions; i++) {
-        const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
-        if (selectedOption) {
-          const answer = selectedOption.value;
-          const questionNum = `q${i}`;
-
-          for (const role in rolesMapping) {
-            if (rolesMapping[role][questionNum]) {
-              const roleScore = rolesMapping[role][questionNum][answer];
-              if (roleScore !== undefined) {
-                roleScores[role] += roleScore;
-              }
-            }
+    function calculateResult() {
+      const form = document.forms['quizForm'];
+      for (let i = 1; i <= 10; i++) {
+        const answer = form[`q${i}`].value;
+        if (answer) {
+          for (const [role, score] of Object.entries(scoringMatrix[`q${i}`][answer])) {
+            roleScores[role] += score;
           }
         }
       }
 
-      // Sort roles by score
-      const sortedRoles = Object.entries(roleScores).sort((a, b) => b[1] - a[1]);
-      const bestFit = sortedRoles[0][0];
-      const scoreOutput = document.getElementById("scoreOutput");
+      // Find the role with the highest score
+      const maxScoreRole = Object.keys(roleScores).reduce((a, b) => roleScores[a] > roleScores[b] ? a : b);
+      document.getElementById('role').innerText = maxScoreRole;
 
-      scoreOutput.innerHTML = `
-        Your best-fit role is: <strong>${bestFit}</strong><br><br>
-        <strong>Full Role Breakdown:</strong><br>
-        ${sortedRoles.map(([role, score]) => `${role}: ${score} points`).join("<br>")}
-      `;
-      
-      document.getElementById("results").style.display = "block";
+      // Display the score breakdown
+      const scoreBreakdown = document.getElementById('scoreBreakdown');
+      scoreBreakdown.innerHTML = '';
+      for (const [role, score] of Object.entries(roleScores)) {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${role}: ${score}`;
+        scoreBreakdown.appendChild(listItem);
+      }
+
+      document.querySelector('.results').style.display = 'block';
     }
   </script>
 
